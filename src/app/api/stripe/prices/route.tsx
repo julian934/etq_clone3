@@ -2,7 +2,7 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-export async function getPrices(request:NextRequest){
+export async function GET(request:NextRequest){
     try {
         
     } catch (error) {
@@ -10,4 +10,4 @@ export async function getPrices(request:NextRequest){
     }
 }
 
-export {getPrices as GET}
+//export {getPrices as GET}
