@@ -584,7 +584,7 @@ const NavBar = (props: Props) => {
               <div className=' flex flex-col bg-white h-[300px] ' >
                  <div className='flex ' >
                  <motion.div className='flex w-28 self-center ' >
-               <Link href='/' > <h1 className='text-3xl text-center tracking-widest' >ETQ.</h1></Link>
+               <Link href='/homeRedux' > <h1 className='text-3xl text-center tracking-widest' >ETQ.</h1></Link>
               
             </motion.div>
             <motion.div className='flex self-center  w-32'

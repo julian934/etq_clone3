@@ -25,15 +25,15 @@ const Cart = (props: Props) => {
   console.log('Current User Check: ', currData);
 
   return (
-    <div className=' top-8 bg-white text-black z-[9999]' >
+    <div className=' top-8  text-black z-[9999]' >
      
       <motion.button onClick={()=>setActive(!active)} className='flex rounded-2xl w-8  mt-4 justify-center bg-black gap-4' >
            <h1 className='text-white flex' >{currData? currData?.data?.userCart.length:0}</h1>
       </motion.button>
-      <motion.div className='  fixed  right-28 min-h-[500px] max-h-[800px] min-w-[500px] overflow-hidden bg-white  right-8 z-[9999] ' >
-            {active && currData!=null && currData!=undefined ? <div className='max-h-[500px]' >
+      <motion.div className='  fixed  right-28 min-h-[500px] max-h-[800px] min-w-[500px] overflow-hidden  right-8 z-[9999] ' >
+            {active && currData!=null && currData!=undefined ? <div className='max-h-[500px] bg-white ' >
                 {currData?.data?.userCart?.map((vals:any)=><div className='flex flex-col gap-2 space-y-2 ' key={vals.id} >
-              <div className='flex w-full  self-center border-2' >
+              <div className='flex w-full  self-center border-2 bg-white' >
                    <CartItemData id={vals.product} quantity={vals.quantity} />
                 
               </div>
@@ -46,7 +46,7 @@ const Cart = (props: Props) => {
             </div>
              :null}
             {active && currData!= null && currData!=undefined?
-            <div className='flex justify-self-end flex-col p-2 min-h-[50px] w-1/3 ' >
+            <div className='flex justify-self-end flex-col p-2 bg-white min-h-[50px] w-1/3 ' >
                <div className='flex z-[9999] ' >
                     <hr className='flex w-full' />
                </div>
