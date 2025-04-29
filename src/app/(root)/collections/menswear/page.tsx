@@ -5,9 +5,11 @@ import { useQuery } from '@tanstack/react-query'
 import { getMensWear } from '@/app/lib/database/connections'
 import NavBar from '@/app/components/ui/navRedux/navbar'
 import Footer from '@/app/components/ui/footer/footer'
-import * as motion from 'motion/react-client'
+//import * as motion from 'motion/react-client'
+import { motion, AnimatePresence } from 'framer-motion';
+
 import Image from 'next/image'
-import {AnimatePresence} from "motion/react"
+//import {AnimatePresence} from "motion/react"
 import Link from 'next/link'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 

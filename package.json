@@ -19,6 +19,7 @@
     "add": "^2.0.6",
     "axios": "^1.7.2",
     "express": "^4.19.2",
+    "framer-motion": "^12.9.2",
     "mongodb": "^6.15.0",
     "motion": "^12.5.0",
     "navigation-menu": "^1.0.0",
