@@ -4,12 +4,12 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 export async function GET(){
     
-        const stripe =new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
+        const stripe =await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
         if(stripe){
             const newData=await stripe.products.list({
                 limit:100
               })
-            return NextResponse.json(newData);
+            return NextResponse.json({data:newData});
         }else{
             return NextResponse.json({data:'Incorrect Key!'})
         }

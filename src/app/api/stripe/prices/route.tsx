@@ -4,9 +4,9 @@ import Stripe from "stripe";
 
 export async function GET(request:NextRequest){
     try {
-        
+        NextResponse.json({data:'testing'})
     } catch (error) {
-        
+        NextResponse.json({error:error})
     }
 }
 
