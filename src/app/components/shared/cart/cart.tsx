@@ -32,7 +32,7 @@ const Cart = (props: Props) => {
       </motion.button>
       <motion.div className='  fixed  right-28 min-h-[500px] max-h-[800px] min-w-[500px] overflow-hidden  right-8 z-[9999] ' >
             {active && currData!=null && currData!=undefined ? <div className='max-h-[500px] bg-white ' >
-                {currData?.data?.userCart?.map((vals:any)=><div className='flex flex-col gap-2 space-y-2 ' key={vals.id} >
+                { currData!=undefined &&  currData?.data?.userCart?.map((vals:any)=><div className='flex flex-col gap-2 space-y-2 ' key={vals.id} >
               <div className='flex w-full  self-center border-2 bg-white' >
                    <CartItemData id={vals.product} quantity={vals.quantity} />
                 
