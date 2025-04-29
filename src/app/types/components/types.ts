@@ -1,3 +1,4 @@
-type Props3 = {
+
+type Props = {
     id:string | undefined | any
   }

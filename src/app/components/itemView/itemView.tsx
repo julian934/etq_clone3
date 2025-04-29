@@ -10,7 +10,7 @@ import { getItemPrice } from '@/app/lib/database/connections'
 type Props = {
   id:string | undefined | any
 }
-
+//renamed from page.tsx
 const ItemView = ({id}:Props) => {
   const [priceData,setPriceData]=useState<any>()
     const {data}=useQuery({
