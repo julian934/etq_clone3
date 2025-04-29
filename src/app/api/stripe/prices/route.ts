@@ -2,12 +2,19 @@ import { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
-export async function GET(request:NextRequest){
+export async function GET(request: NextRequest) {
+    const stripe = new Stripe(process.env.NEXT_PUBLIC_STRIPE_SECRET!);
+  
     try {
-        NextResponse.json({data:'testing'})
+      const testData = await stripe.products.list();
+      console.log('Test Data:', testData);
+  
+      return NextResponse.json({ data: testData }); // No need to stringify
     } catch (error) {
-        NextResponse.json({error:error})
+      console.error("Stripe API error:", error);
+      return NextResponse.json(
+        { message: "Could not retrieve data", error: 'no data' },
+        { status: 500 }
+      );
     }
-}
-
-//export {getPrices as GET}
+  }
