@@ -2,13 +2,13 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export async function GET(){
-  
+  const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
  
   try {
-    const stripe=new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
+    
     let data=await stripe?.prices?.list()
     console.log(data)
-    NextResponse.json({data:data})
+    return NextResponse.json({data:data})
   } catch (error) {
     return NextResponse.json({error:error})
   }
