@@ -1,8 +1,9 @@
 //import type { NextApiRequest, NextApiResponse } from "next"
-import NextAuth,{AuthOptions} from "next-auth"
+import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google"
 import { MongoClient } from "mongodb"
+import type { AuthOptions } from "next-auth";
 
 //This is a catch-all route, so it will receive any data passed to the auth folder at all. 
 //Access database for authorized users and passs the information here. If valid, session will be created and token will be given.
