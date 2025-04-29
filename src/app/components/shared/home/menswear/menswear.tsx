@@ -39,10 +39,12 @@ const Menswear = (props: Props) => {
           <motion.div className='flex flex-col  max-sm:flex-col' >
             <motion.div className='flex  justify-between  ' >
             <motion.div className='flex md:self-center ' >
-               <Image className='h-full  md:h-80vh  md:w-40vw  ' src={data?.data?.data[1]?.images[0]} width={1200} height={1200} alt={data?.data?.data[0]?.name} />
+              {data &&   <Image className='h-full  md:h-80vh  md:w-40vw  ' src={data?.data?.data[1]?.images[0]} width={1200} height={1200} alt={data?.data?.data[0]?.name} />}
+             
             </motion.div>
             <motion.div className='flex max-sm:hidden' >
-               <Image className=' max-sm:hidden md:h-80vh  md:w-40vw  ' src={data?.data?.data[5]?.images[0]} width={1000} height={1000} alt={data?.data?.data[0]?.images[0]} />
+              {data && <Image className=' max-sm:hidden md:h-80vh  md:w-40vw  ' src={data?.data?.data[5]?.images[0]} width={1000} height={1000} alt={data?.data?.data[0]?.images[0]} />}
+               
             </motion.div>
             </motion.div>
             <motion.div className='flex md:w-1/2 flex-col p-4 self-center space-y-2 ' >

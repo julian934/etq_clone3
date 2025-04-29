@@ -45,7 +45,8 @@ const Sale = (props: Props) => {
     <motion.div className='flex  max-sm:flex-col' >
       <AnimatePresence  >
       <motion.div className='flex  h-lvh w-lvw max-sm:h-4/5 ' >
-          <Image className='h-full w-full' src={data?.data?.data[14]?.images[0]} alt={data?.data?.data[14]?.name} width={800} height={800}  quality={100} />
+      {data &&  <Image className='h-full w-full' src={data?.data?.data[14]?.images[0]} alt={data?.data?.data[14]?.name} width={800} height={800}  quality={100} />}
+         
       </motion.div>
       <motion.div className='flex flex-col md:self-center ' >
         <motion.div className='flex flex-col md:self-center max-sm:self-end  md:p-4' >

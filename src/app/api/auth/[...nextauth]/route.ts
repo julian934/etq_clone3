@@ -1,5 +1,5 @@
 //import type { NextApiRequest, NextApiResponse } from "next"
-import NextAuth, { AuthOptions } from "next-auth"
+import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google"
 import { MongoClient } from "mongodb"
@@ -7,8 +7,7 @@ import { MongoClient } from "mongodb"
 //This is a catch-all route, so it will receive any data passed to the auth folder at all. 
 //Access database for authorized users and passs the information here. If valid, session will be created and token will be given.
 const db=new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`); //MongoDB Integration
-const clientPromise = db.connect();
-export const authOptions:AuthOptions = NextAuth({
+const handler = NextAuth({
     
     providers:[
         CredentialsProvider({ // The name to display on the sign in form (e.g. "Sign in with...")
@@ -53,7 +52,7 @@ export const authOptions:AuthOptions = NextAuth({
         })*/
     ],
     callbacks:{
-       async session({session,token,user}){
+        session({session,token,user}){
           if (token?.sub && session.user ) {
             session.user.name = token.sub
           }
@@ -62,5 +61,5 @@ export const authOptions:AuthOptions = NextAuth({
     },
    
 })
-const handler = NextAuth(authOptions);
+
 export {handler as GET, handler as POST}
