@@ -25,7 +25,7 @@ const Products = ({params}:{params:{slug:string}}) => {
    }
    const bagCheck=()=>{
     if(bagged==true){
-      ctx.addToCart(prod)
+      //ctx.addToCart(prod)
       setBagged(false)
     }else{
       setBagged(true)
