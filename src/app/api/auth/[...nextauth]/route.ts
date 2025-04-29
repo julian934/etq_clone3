@@ -1,4 +1,4 @@
-import type { NextApiRequest, NextApiResponse } from "next"
+//import type { NextApiRequest, NextApiResponse } from "next"
 import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import GoogleProvider from "next-auth/providers/google"
@@ -45,10 +45,11 @@ const handler = NextAuth({
                 // You can also Reject this callback with an Error thus the user will be sent to the error page with the error message as a query parameter
               }
             }}),
+            /*
         GoogleProvider({
             clientId:'clientID data',
             clientSecret:'client secret data',
-        })
+        })*/
     ],
     callbacks:{
         session({session,token,user}){
