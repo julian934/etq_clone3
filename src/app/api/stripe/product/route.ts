@@ -7,7 +7,7 @@ export async function GET(request:NextRequest){
     const id=req.get('id');//get item id from frontend
 
     console.log("Current ID: ", id)
-    const stripe= await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`);
+    const stripe= await new Stripe(`${process.env.STRIPE_SECRET}`);
 
     try {
         if(stripe){

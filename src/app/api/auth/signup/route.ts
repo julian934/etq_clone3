@@ -7,7 +7,7 @@ export async function POST(request:NextRequest){
     const username=body.get('username');
     const password=body.get('password')
     try {
-        const mongo=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`)
+        const mongo=await new MongoClient(`${process.env.MONGO_DB}`)
         if(mongo!=undefined){
            const newUser={
             username:username,

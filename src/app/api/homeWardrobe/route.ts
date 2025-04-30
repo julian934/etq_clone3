@@ -4,8 +4,8 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export async function GET(request:NextRequest){
-    const stripe=new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
-    console.log( 'Testing Data: ', process.env.NEXT_PUBLIC_STRIPE_SECRET)
+    const stripe=new Stripe(`${process.env.STRIPE_SECRET}`)
+    console.log( 'Testing Data: ', process.env.STRIPE_SECRET)
     try {
         if(stripe){
             const tshirts=await stripe.products.search({

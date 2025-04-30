@@ -8,7 +8,7 @@ export async function GET(request:NextRequest){
     const username=formData.get('username');
     const password=formData.get('password');
     console.log('entered credentials:', username, ' ', password)
-    const getMongo=await new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`);
+    const getMongo=await new MongoClient(`${process.env.MONGO_BASE}`);
     console.log(getMongo);
     const conn=await getMongo?.connect();
     const newUserData={

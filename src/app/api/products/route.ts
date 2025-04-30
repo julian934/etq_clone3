@@ -3,7 +3,7 @@ import Stripe from "stripe";
 export async function GET(){
  
   try {
-    const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
+    const stripe=await new Stripe(`${process.env.STRIPE_SECRET}`)
     let products=await stripe?.products?.list({
       limit:100
     })
