@@ -63,7 +63,7 @@ export const getCartData=async()=>{
 
 export const getProducts=async()=>{
   try {
-    const { data } = await axios.get('${baseURL}/api/stripe/products');
+    const { data } = await axios.get(`${baseURL}/api/stripe/products`);
     return data; // ✅ Direct return
   } catch (error) {
     console.error("Error fetching products:", error);
