@@ -19,7 +19,7 @@ const Comfort = (props: Props) => {
         refetch(); // Manually trigger refetch if data is missing
        
       } if(data!=undefined && data?.data?.images!=null){
-        let currData=data?data.data[0]:null;
+        let currData=data?data[0]:null;
 
         currData !=null && setComfortState(currData.images[0]);
        }

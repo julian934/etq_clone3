@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import Stripe from "stripe";
 
 export async function GET(){
-  const stripe=await new Stripe(`${process.env.STRIPE_SECRET}`)
+  const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
  
   try {
     

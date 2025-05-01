@@ -21,7 +21,7 @@ const Icons = (props: Props) => {
       //setIconState(currData)
     }
     if(data!=undefined){
-      let currData=data?data.data[0]:null;
+      let currData=data?data[0]:null;
       setIconState(currData);
      }
   },[data,refetch])
@@ -35,7 +35,7 @@ const Icons = (props: Props) => {
     <div className=' px-2' >
       
       <div className='' >
-        {data && <Image className='w-full h-full' src={data.data[0].images[0]} width={400} height={400} alt=' Icons' />}
+        {data && <Image className='w-full h-full' src={data?.data[0]?.images[0]} width={400} height={400} alt=' Icons' />}
           <div className='md:-top-12' >
             <h1 className='' >Evolving the classics.</h1>
               <h2 className='' >Icons only.</h2>

@@ -1,7 +1,11 @@
 "use server"
 import axios from "axios"
 import { error } from "node:console"
-
+const baseURL =
+  process.env.NEXT_PUBLIC_BASE_URL ||
+  (process.env.NODE_ENV === 'development'
+    ? 'http://localhost:3000'
+    : 'https://etq-clone3-4qqo.vercel.app');
 
 export const connectToStripe=()=>{
 
@@ -33,10 +37,10 @@ export const getUser=async(username:string | null | undefined)=>{
   //if(username==undefined) return;
   try {
   
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/getUser?username=${username}`);
+    const {data}=await axios.get(`${baseURL}/api/auth/getUser?username=${username}`);
    
   
-    return data.data
+    return data?.data
   } catch (error) {
     console.log("Error fetching data: ", error);
     return { error: "Data not found", status: 500 };
@@ -46,7 +50,7 @@ export const getUser=async(username:string | null | undefined)=>{
 export const updateUser=async(user:any,userObj:any)=>{
   //const userObj=await user
   try {
-    const data=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/auth/updateUser?username=${user}`, {data:userObj})
+    const data=await axios.post(`${baseURL}/api/auth/updateUser?username=${user}`, {data:userObj})
     return data.data
   } catch (error) {
     console.log("Error fetching data: ", error);
@@ -59,7 +63,7 @@ export const getCartData=async()=>{
 
 export const getProducts=async()=>{
   try {
-    const { data } = await axios.get('/api/stripe/products');
+    const { data } = await axios.get('${baseURL}/api/stripe/products');
     return data; // ✅ Direct return
   } catch (error) {
     console.error("Error fetching products:", error);
@@ -68,7 +72,7 @@ export const getProducts=async()=>{
 }
 export const getCartItem=async(id:string | null | undefined)=>{
   try {
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/product?id=${id}`);
+    const { data } = await axios.get(`${baseURL}/api/product?id=${id}`);
     console.log('Current returned Data: ', data)
     return data?.data; // ✅ Direct return
   } catch (error) {
@@ -77,7 +81,7 @@ export const getCartItem=async(id:string | null | undefined)=>{
 }
 export const getItemPrice=async(id:string | null | undefined)=>{
   try {
-    const { data } = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/getprice?id=${id}`);
+    const { data } = await axios.get(`${baseURL}/api/getprice?id=${id}`);
     console.log('Current returned Data: ', data)
     return data?.data; // ✅ Direct return
   } catch (error) {
@@ -88,7 +92,7 @@ export const getItemPrice=async(id:string | null | undefined)=>{
 export const getCheckOut=async(cart:any)=>{
   try {
 
-    const data=await axios.post(`${process.env.NEXT_PUBLIC_BASE_URL}/api/checkout`,{cart:cart});
+    const data=await axios.post(`${baseURL}/api/checkout`,{cart:cart});
    /* if (data.request.responseURL) {
       window.location.href = data.request.responseURL;
     }*/
@@ -100,7 +104,9 @@ export const getCheckOut=async(cart:any)=>{
 
 export const getHomeSaleCover = async () => {
   try {
-    const test = await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeSales`);
+    const test = await axios.get(`${baseURL}/api/homeSales`).then((vals)=>{
+      return vals
+    });
     console.log('Current Data: ', test);
     
     return test.data; // Make sure to return only test.data
@@ -113,7 +119,9 @@ export const getHomeSaleCover = async () => {
 
 export const getHomeMensWearCover=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeMensWear`);
+    const data=await axios.get(`${baseURL}/api/homeMensWear`).then((vals)=>{
+      return vals
+    });
     console.log('Current Data: ', data);
     
     return data.data; // Make sure to return only test.data
@@ -130,7 +138,7 @@ export const getHomeFootWearCover=async()=>{
 
 export const getHomeWardrobeCover=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeWardrobe`);
+    const {data}=await axios.get(`${baseURL}/api/homeWardrobe`);
     console.log('Current Data: ', data);
     
     const productData:any=data? data.data : null;
@@ -150,7 +158,7 @@ export const getHomeWardrobeCover=async()=>{
     //list.push(coverSneaker);
     //list.push(poloShirts);
     //console.log('List Check: ', list)
-    return data.data; // Make sure to return only test.data
+    return data?.data; // Make sure to return only test.data
   } catch (error) {
     console.log("Error fetching data: ", error);
     return { error: "Data not found", status: 500 };
@@ -159,9 +167,11 @@ export const getHomeWardrobeCover=async()=>{
 
 export const getIconCover=async()=>{
  try {
-  const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeIcon`);
+  const {data}=await axios.get(`${baseURL}/api/homeIcon`).then((vals)=>{
+    return vals
+  });
   console.log('Current Data: ', data);
-  return data.data
+  return data
  } catch (error) {
    console.log('error: ', error);
    return {error:'Data not found',status:500}
@@ -170,7 +180,9 @@ export const getIconCover=async()=>{
 
 export const getMadeCover=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeMade`);
+    const data=await axios.get(`${baseURL}/api/homeMade`).then((vals)=>{
+      return vals
+    });
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -181,7 +193,7 @@ export const getMadeCover=async()=>{
 
 export const getComfortCover=async()=>{
    try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/homeComfort`);
+    const data=await axios.get(`${baseURL}/api/homeComfort`);
     console.log('Current Data: ', data);
     return data.data
    } catch (error) {
@@ -194,7 +206,7 @@ export const getComfortCover=async()=>{
 
 export const getItem=async(id:string | undefined)=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/item?id=${id}`);
+    const data=await axios.get(`${baseURL}/api/collections/item?id=${id}`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -205,7 +217,7 @@ export const getItem=async(id:string | undefined)=>{
 
 export const getDesertBoots=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/desert-boots`);
+    const data=await axios.get(`${baseURL}/api/collections/desert-boots`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -216,7 +228,7 @@ export const getDesertBoots=async()=>{
 
 export const getFootWear=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/footwear`);
+    const data=await axios.get(`${baseURL}/api/collections/footwear`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -226,7 +238,7 @@ export const getFootWear=async()=>{
 }
 export const getMensWear=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/menswear`);
+    const data=await axios.get(`${baseURL}/api/collections/menswear`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -237,7 +249,7 @@ export const getMensWear=async()=>{
 
 export const getDressedFootwear=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/dressed-footwear`);
+    const data=await axios.get(`${baseURL}/api/collections/dressed-footwear`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -248,7 +260,7 @@ export const getDressedFootwear=async()=>{
 
 export const getLoafers=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/loafers`);
+    const data=await axios.get(`${baseURL}/api/collections/loafers`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -259,7 +271,7 @@ export const getLoafers=async()=>{
 
 export const getPoloShirts=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/polo-shirts`);
+    const data=await axios.get(`${baseURL}/api/collections/polo-shirts`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -270,7 +282,7 @@ export const getPoloShirts=async()=>{
 
 export const getShirts=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/shirts`);
+    const data=await axios.get(`${baseURL}/api/collections/shirts`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -281,7 +293,7 @@ export const getShirts=async()=>{
 
 export const getSneakers=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/sneakers`);
+    const data=await axios.get(`${baseURL}/api/collections/sneakers`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -292,7 +304,7 @@ export const getSneakers=async()=>{
 
 export const getTshirts=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/t-shirts`);
+    const data=await axios.get(`${baseURL}/api/collections/t-shirts`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {
@@ -303,7 +315,7 @@ export const getTshirts=async()=>{
 
 export const getTrousers=async()=>{
   try {
-    const data=await axios.get(`${process.env.NEXT_PUBLIC_BASE_URL}/api/collections/trousers`);
+    const data=await axios.get(`${baseURL}/api/collections/trousers`);
     console.log('Current Data: ', data);
     return data.data
   } catch (error) {

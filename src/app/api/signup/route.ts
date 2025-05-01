@@ -9,7 +9,7 @@ export async function POST(request:NextRequest){
     console.log(password);
     const user=await body?.username
     const pass=await body?.password
-    const getMongo=await new MongoClient(`${process.env.MONGO_BASE}`);
+    const getMongo=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_BASE}`);
     const conn=await getMongo?.connect();
     console.log(getMongo);
     console.log(user);

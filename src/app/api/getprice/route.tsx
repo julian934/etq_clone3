@@ -5,7 +5,7 @@ import { NextResponse } from "next/server";
 
 export async function GET(request:NextRequest){
     
-    const stripe:any=await new Stripe(`${process.env.STRIPE_SECRET_KEY}`);
+    const stripe:any=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET_KEY}`);
     const searchParams=await request.nextUrl.searchParams;
     const productId=await searchParams.get('id')
     console.log("frontend Data: ", productId)

@@ -4,7 +4,7 @@ import Stripe from "stripe";
 export async function GET(){
 
   try {
-     const stripe=await new Stripe(`${process.env.STRIPE_SECRET}`);
+     const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`);
     if(stripe){
          const products=await stripe.products.search({
             query:"metadata['category']:'polo-shirt' OR metadata['category']:'polo-shirt' OR metadata['category']:'tshirt' OR metadata['category']:'trousers'"

@@ -20,7 +20,7 @@ const Made = (props: Props) => {
         
       }
       if(data!=undefined){
-        let currData=data?data.data[0]:null;
+        let currData=data?data[0]:null;
         setMadeState(currData);
        }
     },[data,refetch]);
