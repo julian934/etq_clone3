@@ -8,7 +8,7 @@ import type { User } from "next-auth"
 //This is a catch-all route, so it will receive any data passed to the auth folder at all. 
 //Access database for authorized users and passs the information here. If valid, session will be created and token will be given.
 //const db=new MongoClient(`mongodb+srv://julian:Kratos155@m0db.rkibr.mongodb.net/`); //MongoDB Integration
-const db=new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_BASE}`);
+const db=new MongoClient(`${process.env.MONGO_BASE!}`);
 const clientPromise = db.connect();
 const handler = NextAuth({
     

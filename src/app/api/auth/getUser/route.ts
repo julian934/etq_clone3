@@ -7,7 +7,7 @@ export async function GET(request:NextRequest){
       const username=await body.get('username');
       console.log(username)
     try {
-        const mongo=await new MongoClient(`${process.env.NEXT_PUBLIC_MONGO_DB}`);
+        const mongo=await new MongoClient(`${process.env.MONGO_DB!}`);
         await mongo.connect();
         if(mongo){
             const currUser=await mongo.db('users').collection('the_magisters_corner_users').aggregate([
