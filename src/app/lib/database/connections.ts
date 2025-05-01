@@ -2,10 +2,10 @@
 import axios from "axios"
 import { error } from "node:console"
 const baseURL =
-  process.env.NEXT_PUBLIC_BASE_URL ||
   (process.env.NODE_ENV === 'development'
     ? 'http://localhost:3000'
     : 'https://etq-clone3-4qqo.vercel.app');
+    
 
 export const connectToStripe=()=>{
 
