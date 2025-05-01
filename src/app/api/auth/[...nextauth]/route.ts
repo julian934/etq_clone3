@@ -66,7 +66,7 @@ const handler = NextAuth({
             clientSecret:'client secret data',
         })*/
     ],
-    secret:process.env.NEXTAUTH_SECRET,
+    secret:process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
     callbacks:{
         session({session,token,user}){
           if (session.user && token?.sub ) {
