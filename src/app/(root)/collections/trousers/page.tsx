@@ -34,7 +34,7 @@ const Trousers = (props: Props) => {
     console.log(ctx.userState)
   if(data!=undefined) console.log(data)
   return (
-    <div className=' bg-white text-black ' >
+    <div className=' bg-white text-black md:min-h-screen ' >
     <div className='w-full' >
     <NavBar/>
     </div>

@@ -68,10 +68,10 @@ const NavBar = (props: Props) => {
       return ()=>window.removeEventListener("keydown",onKeyDown);
     },[active,currData]);
 
-    const searchData=()=>{
+    const searchData=async()=>{
       let currData=products?.data;
       //setSearchInfo(searchRef.current.value)
-      let searchTerm=currData.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
+      let searchTerm=await currData.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
       setSearchInfo(searchTerm)
 
     }
@@ -442,10 +442,12 @@ const NavBar = (props: Props) => {
             initial="hidden"
              variants={variants}
              animate={searchModal?"visible":"hidden"}
-            onHoverEnd={()=>setSearchModal(!searchModal)}
+            onHoverEnd={()=>{
+              searchModal && setSearchModal(!searchModal)
+            }}
               layoutId={`card-${active?.title}-${id}`}
               ref={ref}
-              className="w-full  text-black   h-full md:h-fit md:max-h-[45%]  flex flex-col bg-white dark:bg-neutral-900  overflow-hidden"
+              className="w-full  text-black z-50  h-full md:h-fit md:max-h-[45%]  border-2 border-black flex flex-col bg-white dark:bg-neutral-900  overflow-hidden"
             >
               <motion.div layoutId={`image-${active?.title}-${id}`}>
                
@@ -758,8 +760,7 @@ const NavBar = (props: Props) => {
           </div>
         ) : null}
       </AnimatePresence>
-     
-        <motion.div className='flex self-center px-4 flex-row justify-between  max-sm:hidden w-full h-16' >
+       {!active && !mensWear && !searchModal && !serviceModal  && !accountModal && <motion.div className='flex self-center px-4 flex-row justify-between max-sm:hidden w-full h-16' >
             {/* desktop nav */}
             <motion.div className='flex justify-around  w-1/3' >
             <motion.div className='flex w-28 self-center ' >
@@ -791,7 +792,7 @@ const NavBar = (props: Props) => {
             </motion.div>
             </motion.div>
             
-            <motion.div className='flex   justify-between w-96' >
+            <motion.div className='flex  justify-between w-96' >
                   <motion.button onClick={()=>setSearchModal(!searchModal)} className='flex self-center' >
                       Search
                   </motion.button>
@@ -809,7 +810,8 @@ const NavBar = (props: Props) => {
                   
                   <Cart/>
             </motion.div>
-        </motion.div>
+        </motion.div> }
+       
         <motion.div className='flex justify-between md:hidden' >
             {/*mobile nav */}
             <motion.div className='flex  w-1/4 justify-around px-4 ' >
