@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React,{useState} from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getFootWear } from '@/app/lib/database/connections'
 import NavBar from '@/app/components/ui/navRedux/navbar'
@@ -14,6 +14,7 @@ import filterImg from '@/app/localImages/UI/filter-black.png'
 type Props = {}
 
 const FootWear = (props: Props) => {
+  const [filterModal,setFilterModal]=useState<any>(false)
     const {data}=useQuery({
         queryKey:['footwear'],
         queryFn:()=>getFootWear(),
@@ -21,6 +22,7 @@ const FootWear = (props: Props) => {
         
     })
     if(data!=undefined) console.log(data)
+      console.log('Test State: ', filterModal)
   return (
     <div className='bg-white text-black' >
         <motion.div className='w-full' >
@@ -37,11 +39,12 @@ const FootWear = (props: Props) => {
         <div className='w-full' >
          <div className='flex justify-between p-8 ' >
            <h1 className='' >{data?.data?.data.length} items</h1>
-          <motion.div className='space-y-2' >
+          <div className='space-y-2   rounded-md z-50' >
+            <button className='' onClick={()=>setFilterModal(!filterModal)} >
             <Image className=' flex w-6 h-6 justify-self-center ' src={filterImg} alt='Filter Image' />
-            
-            <button className='' onClick={()=>{}} >Filter & Sort</button>
-            </motion.div>
+            <h1 className='' > Filter & Sort</h1>
+              </button>
+            </div>
             
          </div>
          <div className='flex flex-wrap self-center w-full p-2 gap-x-8' >

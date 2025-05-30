@@ -12,6 +12,7 @@ import Image from 'next/image'
 //import {AnimatePresence} from "motion/react"
 import Link from 'next/link'
 import filterImg from '@/app/localImages/UI/filter-black.png'
+import GetPrice from '@/app/components/hooks/getPrice'
 
 type Props = {}
 
@@ -53,13 +54,16 @@ const MensWear = (props: Props) => {
                 
                 <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
-                <p className='' >${items.default_price}</p>
+               
+                <GetPrice id={items?.id} />
                 </Link>
             </div>)}
 
          </div>
         </div>
-        
+        <div>
+          
+        </div>
         <Footer/>
         </div>
   )

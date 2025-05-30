@@ -50,7 +50,7 @@ const Trousers = (props: Props) => {
               <motion.div className='' >
                 <Image className='flex w-6 h-6 justify-center' src={filterImg} alt='Filter Image' />
                 
-                <button className='' onClick={()=>setFilterModal(!filterModal)} >Filter & Sort</button>
+                <button className=' md:-ml-8 ' onClick={()=>setFilterModal(!filterModal)} >Filter & Sort</button>
                 </motion.div>
                 
              </div>
@@ -77,7 +77,7 @@ const Trousers = (props: Props) => {
       </div>)}
 
     </div>
-    <div className='' >
+    <div className=' md:flex md:pt-32' >
       <Footer/>
 
     </div>

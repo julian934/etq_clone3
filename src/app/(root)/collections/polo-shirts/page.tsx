@@ -70,7 +70,7 @@ const PoloShirts = (props: Props) => {
       </div>)}
 
     </div>
-    <div className='' >
+    <div className='md:pt-32' >
       <Footer/>
 
     </div>

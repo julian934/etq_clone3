@@ -70,7 +70,7 @@ const Sale = (props: Props) => {
            </motion.div>
              */}
            
-           <motion.div className='' initial="visible" variants={variants} animate={saleData?"visible":"hidden"}  >
+           <motion.div className='w-14' initial="visible" variants={variants} animate={saleData?"visible":"hidden"}  >
              <hr/>
            </motion.div>
         </motion.div>

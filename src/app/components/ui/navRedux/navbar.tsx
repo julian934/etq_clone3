@@ -30,6 +30,7 @@ const NavBar = (props: Props) => {
      const [searchInfo,setSearchInfo]=useState<any>('')
     const [login,setLogin]=useState<any>(null);
     const [mobileSearchModal,setMobileSearchModal]=useState<boolean>(false)
+    const [hoverState,setHoverState]=useState<any>(false);
     const ref=useRef<HTMLDivElement>(null);
     const id=useId();
     const emailRef=useRef<any>();
@@ -69,7 +70,7 @@ const NavBar = (props: Props) => {
     },[active,currData]);
 
     const searchData=async()=>{
-      let currData=products?.data;
+      let currData=products?.data?.data;
       //setSearchInfo(searchRef.current.value)
       let searchTerm=await currData.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
       setSearchInfo(searchTerm)
@@ -95,6 +96,7 @@ const NavBar = (props: Props) => {
     ctx.cartState && console.log("Current Cart State: ", ctx.cartState);
     if(data!=undefined) console.log("Current Data: ", data)
       console.log("Current Data: ", currUser)
+    console.log("Testing: ", products)
   return (
     <motion.div className=' flex flex-col border-2 border-slate-200 justify-between w-full p-4 z-100 ' >
          <AnimatePresence>
@@ -193,12 +195,16 @@ const NavBar = (props: Props) => {
             <motion.div className='flex flex-col self-center  w-32'
               
               onHoverStart={()=>{
-                !active && setActive(!active) 
+                //!active && setActive(!active) 
+                setHoverState(!hoverState)
               }}
              
+               onHoverEnd={()=>{
+                setHoverState(true)
+               }}
                >
                 <Link className='' href='/collections/footwear' >Footwear</Link>
-                <motion.div className='flex w-3/5   bg-slate-200 z-100' initial="visible" variants={hoverVariants} animate={active?"visible":"hidden"}  >
+                <motion.div className='flex w-3/5   bg-slate-200 z-100' initial="visible" variants={hoverVariants} animate={hoverState?"visible":"hidden"}  >
                               <hr/>
                             </motion.div>
                 
@@ -221,7 +227,7 @@ const NavBar = (props: Props) => {
                 <div className='flex justify-around items-start p-4  w-2/3' >
                     <div className='flex flex-col space-y-4' >
                       <h1 className='text-xl' >Type </h1>
-                         <Link href='/collections/all/footwear' >All Footwear</Link> 
+                         <Link href='/collections/footwear' >All Footwear</Link> 
                          <Link  href='/collections/sneakers'>Sneakers</Link> 
                          <Link href='/collections/loafers' >Loafers</Link>
                          <Link href='/collections/desert-boots' >Desert Boots</Link>
@@ -334,15 +340,21 @@ const NavBar = (props: Props) => {
                 
             </motion.div>
             <motion.div className='flex flex-col self-center  w-32'
-              
+              /*
               onHoverStart={()=>{
                 !mensWear && setMensWear(!mensWear)
               }}
-              
+              */
+             onHoverStart={()=>{
+              setHoverState(!hoverState)
+             }}
+             onHoverEnd={()=>{
+              setHoverState(true)
+             }}
                >
                  
                  <Link className='' href='/collections/menswear' >Menswear</Link>
-                  <motion.div className='flex w-3/5   bg-slate-200 z-100' initial="visible" variants={hoverVariants} animate={mensWear?"visible":"hidden"}  >
+                  <motion.div className='flex w-3/5   bg-slate-200 z-100' initial="hidden" variants={hoverVariants} animate={hoverState?"visible":"hidden"}  >
                               <hr/>
                             </motion.div>
             </motion.div>
@@ -354,7 +366,7 @@ const NavBar = (props: Props) => {
                 <div className='flex  text-black  justify-around items-start p-4  w-2/3' >
                     <div className='flex  text-black  flex-col space-y-4' >
                       <h1 className='text-xl' >Type </h1>
-                         <Link href='/collections/all/menswear' >All Menswear</Link> 
+                         <Link href='/collections/menswear' >All Menswear</Link> 
                          <Link  href='/collections/t-shirts'>T-Shirts</Link> 
                          <Link href='/collections/polo-shirts' >Polo Shirts</Link>
                          <Link href='/' >Sweaters</Link>
@@ -447,7 +459,7 @@ const NavBar = (props: Props) => {
             }}
               layoutId={`card-${active?.title}-${id}`}
               ref={ref}
-              className="w-full  text-black z-50  h-full md:h-fit md:max-h-[45%]  border-2 border-black flex flex-col bg-white dark:bg-neutral-900  overflow-hidden"
+              className="w-full  text-black z-50  h-full md:h-fit md:max-h-[45%]    flex flex-col bg-white dark:bg-neutral-900  overflow-hidden"
             >
               <motion.div layoutId={`image-${active?.title}-${id}`}>
                
@@ -525,7 +537,7 @@ const NavBar = (props: Props) => {
                   </div>
                  <div className='flex flex-col space-y-4 ' >
                   <h1 className='' >Shop</h1>
-                    <Link className='' href='/collections/all/footwear' >Shoes</Link>
+                    <Link className='' href='/collections/footwear' >Shoes</Link>
                     <Link className=''  href='/collections/sneakers' >Sneakers</Link>
                     <Link className=''  href='/collections/loafers' >Loafers</Link>
                     <Link className='' href='/'  >Espadrilles</Link>  
