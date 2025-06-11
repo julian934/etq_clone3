@@ -1,5 +1,5 @@
 'use client'
-import React from 'react'
+import React, { useState,useContext } from 'react'
 import { useQuery } from '@tanstack/react-query'
 //import { getFootWear } from '@/app/lib/database/connections'
 import { getMensWear } from '@/app/lib/database/connections'
@@ -13,17 +13,25 @@ import Image from 'next/image'
 import Link from 'next/link'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import GetPrice from '@/app/components/hooks/getPrice'
-
+import Filter from '@/app/components/ui/filterModal/filter'
+import { StoreStateContext } from '@/app/lib/context/storeContext'
 type Props = {}
 
 const MensWear = (props: Props) => {
-    const {data}=useQuery({
+  const ctx=useContext(StoreStateContext);
+   const [filterActive,setFilterActive]=useState<boolean>(false);
+   const [filteredData,setFilteredData]=useState<boolean | any>(false);
+    const {data:AllData}=useQuery({
         queryKey:['footwear'],
         queryFn:()=>getMensWear(),
         staleTime:1000* 60 * 5,
         
     })
-    if(data!=undefined) console.log(data)
+    if(AllData!=undefined) console.log(AllData);
+      const stateSwitcher=()=>{
+    filterActive && setFilterActive(false);
+    !filterActive && setFilterActive(true);
+    }
   return (
     <div className='bg-white text-black' >
         <motion.div className='w-full' >
@@ -39,16 +47,25 @@ const MensWear = (props: Props) => {
         </div>
         <div className='w-full' >
          <div className='flex justify-between p-8 ' >
-           <h1 className='' >{data?.data?.data.length} items</h1>
-          <motion.div className='' >
+           <h1 className='' >{AllData?.data?.data.length} items</h1>
+          <div className='z-9999' >
+            
+            
+            <motion.button className='z-9999 ' onClick={()=>stateSwitcher()} >
             <Image className='flex w-6 h-6 justify-center ' src={filterImg} alt='Filter Image' />
-            
-            <button className='' onClick={()=>{}} >Filter & Sort</button>
+              <h1 className='' >Filter & Sort</h1>
+              </motion.button>
+            </div>
+            <div className=' relative md:top-0' >
+         <motion.div className='flex md:justify-center' >
+                {filterActive && <Filter items={AllData} />}
+
             </motion.div>
-            
          </div>
+         </div>
+        
          <div className='flex flex-wrap self-center w-full p-2 gap-x-8' >
-            {data && data?.data?.data?.map((items:any)=>
+            {AllData && AllData?.data?.data?.map((items:any)=>
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
