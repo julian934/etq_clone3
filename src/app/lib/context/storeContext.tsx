@@ -26,6 +26,10 @@ interface User {
     userState: User | null;
     cartData: () => void;
     cartItems: User | null;
+    filterStr:(str:string)=>void;
+    filterString:string | null,
+    sortStr:(str:string)=>void,
+    sortString:string | null
   }
 /*
 const initialContext={
@@ -56,6 +60,10 @@ const initialContext: StoreContextType = {
     userState: null,
     cartData: () => {},
     cartItems: null,
+    filterStr:()=>{},
+    filterString:null,
+    sortStr:()=>{},
+    sortString:null
   };
 type ContextType=typeof initialContext;
 export const StoreStateContext=createContext<ContextType>(initialContext);
@@ -72,6 +80,8 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
     const [currCart,setCart]=useState<any>([]);
     const [userState,setUserState]=useState<any>();
     const [cartItems,setCartItems]=useState<any>();
+    const [filterString,setFilterString]=useState<any>();
+    const [sortString,setSortString]=useState<any>('');
 
    useEffect(()=>{
     const storedUser=localStorage.getItem("userState");
@@ -170,8 +180,15 @@ export const StoreStateContextProvider:FC<StoreStateContextProviderProps>=({chil
         }
        
     }
+    const filterStr=(str:string)=>{
+          
+          setFilterString(str);
+    }
+    const sortStr=(str:string)=>{
+        setSortString(str);
+    }
 
-    return(<StoreStateContext.Provider value={{state,dataCheck,testData,bannerImgs,pageState,pagination,addToCart,currCart,userData,userState,cartData,cartItems}} >
+    return(<StoreStateContext.Provider value={{state,dataCheck,testData,bannerImgs,pageState,pagination,addToCart,currCart,userData,userState,cartData,cartItems,filterStr,filterString,sortStr,sortString}} >
         {children}
     </StoreStateContext.Provider>)
 }

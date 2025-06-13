@@ -64,7 +64,7 @@ const Sale = (props: Props) => {
         }} onHoverEnd={()=>{
           setSaleData(true)
         }} className='' >
-           <Link className='font-light' href='/collections/sale' >Shop All</Link>
+           <Link className='font-light' href='/collections/sales' >Shop All</Link>
            {/*(<motion.div className='' initial='visible' whileHover={{translateX:(1300)}}  exit={{translateX:0}} >
              <hr/>
            </motion.div>
