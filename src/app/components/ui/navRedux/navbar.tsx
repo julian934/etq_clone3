@@ -1,12 +1,13 @@
 'use client'
-import React,{useEffect, useState,useId,useRef,useContext} from 'react'
+import React,{useEffect, useState,useId,useRef,useContext,SetStateAction,FormEvent } from 'react'
 import * as motion from 'motion/react-client'
 import Image from 'next/image'
 import {AnimatePresence} from "motion/react"
 import Link from 'next/link'
 import Cart from '../../shared/cart/cart'
 import { useOutsideClick } from '../../hooks/use-outside-click'
-import { StoreStateContext } from '@/app/lib/context/storeContextRedux'
+//import { StoreStateContext } from '@/app/lib/context/storeContextRedux'
+import { StoreStateContext } from '@/app/lib/context/storeContext'
 import { signIn } from 'next-auth/react'
 import { useQuery } from '@tanstack/react-query'
 import mobileMenuImg from '@/app/localImages/UI/mobile-menu.png'
@@ -15,6 +16,11 @@ import search from '@/app/localImages/UI/search-button.png'
 import MobileMenu from '../mobileMenu/mobileMenu'
 import MobileSearch from '../mobileSearch/mobileSearch'
 import { getProducts } from '@/app/lib/actions/getData'
+import { Session } from 'next-auth'
+import { useSession } from 'next-auth/react'
+import axios from 'axios'
+import { checkUser } from '@/app/lib/database/connections'
+import { signOut } from 'next-auth/react'
 type Props = {}
 
 const NavBar = (props: Props) => {
@@ -28,47 +34,95 @@ const NavBar = (props: Props) => {
     const [serviceModal, setServiceModal]=useState<any>(null);
     const [accountModal,setAccountModal]=useState<any>(null);
      const [searchInfo,setSearchInfo]=useState<any>('')
+     const [submit,setSubmit]=useState<any>(null);
     const [login,setLogin]=useState<any>(null);
+    const [signUp,setSignUp]=useState<any>(null);
     const [mobileSearchModal,setMobileSearchModal]=useState<boolean>(false)
+    const [logUserName,setLogUserName]=useState<string>('');
+    const [currPassWord,setCurrPassWord]=useState<string>('');
     const [hoverState,setHoverState]=useState<any>(false);
+    const [userState,setUserState]=useState<any>()
+    const [settings,setSettings]=useState<any>(null);
     const ref=useRef<HTMLDivElement>(null);
     const id=useId();
+    const [userName,setUserName]=useState<SetStateAction<string> | React.MutableRefObject<undefined | string  > >('');
+    const [userPass,setUserPass]=useState<SetStateAction<string> | React.MutableRefObject<undefined | string  > >('');
     const emailRef=useRef<any>();
     const passRef=useRef<any>();
+    const passWordRef=useRef<any>();
+    const userRef=useRef<any>()
     const searchRef=useRef<any>();
+    const {data:sessionData}=useSession()
       const ctx=useContext(StoreStateContext);
       const currData:any=ctx.userState;
-    const {data}=useQuery({
+   /* const {data}=useQuery({
       queryKey:['cart data'],
-      queryFn:()=>ctx.cartData(),
+      queryFn:async ()=>ctx.cartData(),
       staleTime:1000 * 60 * 5
-    })
+    })*/
      const {data:products}=useQuery({
                 queryKey:['products'],
                 queryFn:()=>getProducts(),
                 staleTime: 1000* 60 * 5
               })
-   
-    useEffect(()=>{
-      if(currData!=undefined){
-        const finData: any =currData? currData: null;
-        console.log('curr data: ', currData)
-        setCurrUser(finData)
+     const {data:userData}=useQuery({
+      queryKey:['userData'],
+      queryFn:()=>checkUser(sessionData?.user?.name),
+      enabled: !!sessionData?.user?.name,
+      staleTime:1000*60*5
+     })
+
+     useEffect(() => {
+      if (userData && ctx.userState === null) {
+        ctx.setUserState(userData);
       }
+    }, [userData]);
+  
+    useEffect(() => {
       function onKeyDown(event: KeyboardEvent) {
-        if (event.key === "Escape") {
+        if (event.key === 'Escape') {
           setActive(false);
         }
       }
-      if(active && typeof active =='object'){
-        document.body.style.overflow='hidden';
-      }else{
-        document.body.style.overflow='auto';
+  
+      if (active && typeof active == 'object') {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = 'auto';
       }
-      window.addEventListener("keydown",onKeyDown);
-      return ()=>window.removeEventListener("keydown",onKeyDown);
-    },[active,currData]);
+  
+      window.addEventListener('keydown', onKeyDown);
+      return () => window.removeEventListener('keydown', onKeyDown);
+    }, [active]);
+    const handleUserChange=()=>{
+      if (userRef.current) {
+          setUserName(userRef.current.value);
+      }
+  }
+  const handlePassChange=()=>{
+      if (passWordRef.current) {
+          setUserPass(passWordRef.current.value);
+      }
+  }
+  const submitData=(event:FormEvent<HTMLFormElement>)=>{
+    event.preventDefault();
+    const formData=new FormData()
+    //const user=formData?.username
+    const dataSet={
+        username:userName,
+        password:userPass,
+        userCart:[],
+        wishList:[],
+        userSettings:[]
+    }
+    const newUserData=axios.post('/api/signup/',{data:dataSet})
+    if(userName && userPass){
+        setSubmit(true)
+        return newUserData
+    }
+    return 'Invalid New User'
 
+}
     const searchData=async()=>{
       let currData=products?.data?.data;
       //setSearchInfo(searchRef.current.value)
@@ -92,11 +146,55 @@ const NavBar = (props: Props) => {
       }),
       visible: { opacity: 1, x: 0 }
     }
-    ctx.cartState
-    ctx.cartState && console.log("Current Cart State: ", ctx.cartState);
-    if(data!=undefined) console.log("Current Data: ", data)
+    /*const handleSignIn = async () => {
+      const res = await signIn('credentials', {
+        username: logEmail,
+        password: currPassWord,
+        redirect: false, // Important for debugging
+        callbackUrl: '/homeRedux',
+      });
+    
+      console.log('SignIn Response:', res);
+    
+      if (res?.ok) {
+        window.location.href = '/homeRedux';
+      } else {
+        alert('Login failed');
+      }
+    };*/
+    const handleSignIn = async () => {
+      const res = await signIn('credentials', {
+        username: logUserName, // <- This matches the backend's credential field name
+        password: currPassWord, // <- This matches the backend's credential field name
+        redirect: false, // Required for debugging and to prevent automatic redirects
+        callbackUrl: '/homeRedux', // Where you want to send the user after login
+      });
+    
+      console.log('SignIn Response:', res);
+    
+      if (res?.ok) {
+        // Manual navigation since redirect is false
+        
+        window.location.href = '/homeRedux';
+      } else {
+        alert('Login failed');
+      }
+    };
+    
+    
+ //   ctx.cartState
+   // ctx.cartState && console.log("Current Cart State: ", ctx.cartState);
+    //if(data!=undefined) console.log("Current Data: ", data)
       console.log("Current Data: ", currUser)
     console.log("Testing: ", products)
+    sessionData && console.log('Session Data: ', sessionData?.user)
+     console.log('User Check: ',logUserName );
+    console.log('Pass Check: ', currPassWord)
+    //console.log('Curr User: ', userState)
+   if(userData  )  console.log('Current User Data: ', userData);
+   console.log('test ', userData?.username)
+
+  if(userData) console.log('curr User State: ', ctx.userState);
   return (
     <motion.div className=' flex flex-col border-2 border-slate-200 justify-between w-full p-4 z-100 ' >
          <AnimatePresence>
@@ -718,7 +816,36 @@ const NavBar = (props: Props) => {
                   </motion.button>
                  
             </motion.div>
-            {!login && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
+            {ctx.userState && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
+              
+              
+              <div className='flex flex-col w-full justify-around self-end justify-end pt-12  p-2 space-y-8 ' >
+              <h3 className='bg-white flex justify-center text-start py-4  text-sm ' >
+                  Check your settings to view your orders, return or adjust your personal information.
+              </h3>
+                <hr className='flex w-full bg-slate-200   ' />
+                <div className='flex flex-row justify-around  ' >
+                  <div className='-mt-4' >
+                    {/* <Link className='w-1/4 -mt-8 ' href='/sign-up' ></Link>*/}
+                  
+                  <button className='w-1/4 -mt-8 ' onClick={()=>setSettings(!settings)} >Settings</button>
+                  </div>
+                   
+               
+              
+                 <button className='text-white text-center flex self-center justify-center ' onClick={()=>signOut()} > 
+                  
+                  <motion.div className='bg-black w-28 h-12 flex justify-center self-center -mt-6' >
+                  <h1 className='flex text-center self-center ' >LogOut</h1>
+                  </motion.div>
+                  </button>
+                
+                </div>
+              
+                
+              </div>
+            </motion.div>}
+            {!login  &&!ctx.userState && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
               
               
               <div className='flex flex-col w-full justify-around self-end justify-end pt-12  p-2 space-y-8 ' >
@@ -728,7 +855,9 @@ const NavBar = (props: Props) => {
                 <hr className='flex w-full bg-slate-200   ' />
                 <div className='flex flex-row justify-around  ' >
                   <div className='-mt-4' >
-                  <Link className='w-1/4 -mt-8 ' href='/sign-up' >Create account</Link>
+                    {/* <Link className='w-1/4 -mt-8 ' href='/sign-up' ></Link>*/}
+                  
+                  <button className='w-1/4 -mt-8 ' onClick={()=>setSignUp(!signUp)} >Create account</button>
                   </div>
                    
                
@@ -745,16 +874,16 @@ const NavBar = (props: Props) => {
                 
               </div>
             </motion.div>}
-              {login && <motion.div className='flex flex-col  p-4 ' >
-                <h1 className='' >Email*</h1>
-                <input className='border-2 w-full h-12'  ref={emailRef}  />
+              {login &&!signUp && <motion.div className='flex flex-col  p-4 ' >
+                <h1 className='' >Username*</h1>
+                <input className='border-2 w-full h-12'   value={logUserName} onChange={(e)=>setLogUserName(e.target.value)}  />
                 <h1 className='' >Pass*</h1>
-                <input className='border-2 w-full h-12' ref={passRef} />
+                <input className='border-2 w-full h-12' value={currPassWord} onChange={(e)=>setCurrPassWord(e.target.value)} />
                 <hr className='w-28' />
                 <div className='flex flex-row self-center w-full justify-around ' >
                   <Link className='justify-start' href='/' >Lost your password?</Link>
                  
-                   <button className='text-white text-center flex self-center justify-center ' onClick={()=>signIn('credentials',{username:emailRef.current.value,password:passRef.current.value,callbackUrl:'/homeRedux'})} > 
+                   <button className='text-white text-center flex self-center justify-center ' onClick={handleSignIn} > 
                     
                     <motion.div className='bg-black w-28  h-12 flex justify-center self-center ' >
                       <h1 className='flex text-center self-center ' >Login</h1>
@@ -763,6 +892,28 @@ const NavBar = (props: Props) => {
                  
                 </div>
               </motion.div> }
+                {signUp && <motion.div className='flex flex-col  p-4 ' >
+                  <h1 className='' >Username*</h1>
+                  <form onSubmit={submitData} >
+                <input className='border-2 w-full h-12'  ref={userRef} value={logUserName} onChange={handleUserChange}  />
+                <h1 className='' >Pass*</h1>
+                <input className='border-2 w-full h-12' ref={passWordRef} value={currPassWord} onChange={handlePassChange} />
+                <hr className='w-28' />
+                <div className='flex flex-row self-center w-full justify-around ' >
+
+                  <Link className='justify-start' href='/' >Lost your password?</Link>
+                 
+                   <button className='text-white text-center flex self-center justify-center ' type='submit' > 
+                    
+                    <motion.div className='bg-black w-28  h-12 flex justify-center self-center ' >
+                      <h1 className='flex text-center self-center ' >Login</h1>
+                    </motion.div>
+                    </button>
+                 
+                </div>
+                </form>
+                
+                  </motion.div>}
            
                  </div>
                                 
@@ -804,7 +955,7 @@ const NavBar = (props: Props) => {
             </motion.div>
             </motion.div>
             
-            <motion.div className='flex  justify-between w-96' >
+            <motion.div className='flex   justify-between w-96' >
                   <motion.button onClick={()=>setSearchModal(!searchModal)} className='flex self-center' >
                       Search
                   </motion.button>

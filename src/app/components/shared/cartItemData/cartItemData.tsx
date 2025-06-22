@@ -11,7 +11,7 @@ type Props = {}
 const CartItemData = ({id,quantity}:{id:any, quantity?:number | any}) => {
   const [priceData,setPriceData]=useState<any>()
     const {data}=useQuery({
-        queryKey:['Cart Item'],
+        queryKey:['Cart Item',id],
         queryFn:()=>getCartItem(id),
         staleTime:1000 * 60 * 5
     });

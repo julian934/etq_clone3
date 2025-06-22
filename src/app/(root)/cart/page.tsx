@@ -30,21 +30,21 @@ const Cart = (props: Props) => {
   const ctx=useContext(StoreStateContext);
   const hasUpdated = useRef(false);
   
-  const {data}=useQuery({
+  /*const {data}=useQuery({
     queryKey:['cart data'],
     queryFn:()=>ctx.cartData(),
     staleTime:1000 * 60 * 5
-  })
+  })*/
   useEffect(() => {
     // Only update if user data is fetched successfully
    // const user = ctx.cartData();
-    if(data!=undefined){
-      const currData: any =data? data: null;
+    if(ctx.userState!=undefined){
+      const currData: any =ctx.userState;
       console.log('curr data: ', currData)
       setCurrUser(currData)
     }
    
-  },[data]);
+  },[ctx.userState]);
   const handleCheckout=async()=>{
   //  const newData = currUser?.data?.userCart;
 
@@ -65,6 +65,11 @@ const Cart = (props: Props) => {
       if(currUser){
         const response = await axios.post('/api/checkout', {
           cart:currUser.userCart,
+          
+        },{
+          headers:{
+            Authorization:`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`
+          }
         });
     
         const { url } = response.data;
@@ -84,9 +89,9 @@ const Cart = (props: Props) => {
 
   console.log("User Check: ", ctx.userState)
   console.log("Curr User: ", currUser)
-  console.log("Current Data: ", data)
+ // console.log("Current Data: ", data)
   console.log("Data Test: ",)
-  console.log("cart data: ", ctx.cartItems?.userCart)
+  //console.log("cart data: ", ctx.cartItems?.userCart)
   if(currUser!=undefined) console.log("Testing curr user: ", currUser)
   return (
     <div className="  bg-white  text-black  " >

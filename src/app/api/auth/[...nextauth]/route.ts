@@ -33,7 +33,7 @@ const handler = NextAuth({
                    //const coll=await currDB?.db('users')?.collection('the_magisters_corner_users');
                    const user=await currDB?.db('users')?.collection('the_magisters_corner_users')?.findOne({"username": credentials?.username,"password": credentials?.password});
                    
-                
+                 console.log('Found User Data: ', user)
                  // console.log("REquest Data: ", req?.query?.user)
                   if(!user) return null
      
@@ -70,7 +70,7 @@ const handler = NextAuth({
     callbacks:{
         session({session,token,user}){
           if (session.user && token?.sub ) {
-            session.user.name = token.sub
+           // session.user.name = token.sub
           }
             return session
         }

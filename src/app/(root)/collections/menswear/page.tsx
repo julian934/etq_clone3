@@ -88,7 +88,7 @@ const MensWear = (props: Props) => {
                 <GetPrice id={items?.id} />
                 </Link>
             </div>)}
-            {AllData && ctx.filterString==null&& ctx.sortString=='AZ' && AllData?.data?.data?.sort((a:any,b:any)=>a.name.localeCompare(b.name))?.map((items:any)=>
+            {AllData && ctx.filterString==null&& ctx?.sortString=='AZ' && AllData?.data?.data?.sort((a:any,b:any)=>a.name.localeCompare(b.name))?.map((items:any)=>
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
@@ -98,7 +98,7 @@ const MensWear = (props: Props) => {
                 <GetPrice id={items?.id} />
                 </Link>
             </div>)}
-            {AllData && ctx.filterString==null&& ctx.sortString=='ZA' && AllData?.data?.data?.sort((a:any,b:any)=>b.name.localeCompare(a.name))?.map((items:any)=>
+            {AllData && ctx.filterString==null&& ctx?.sortString=='ZA' && AllData?.data?.data?.sort((a:any,b:any)=>b.name.localeCompare(a.name))?.map((items:any)=>
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 

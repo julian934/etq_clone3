@@ -39,13 +39,13 @@ export async function POST(request: NextRequest) {
 
     // Log the revisedCart structure for debugging
     console.log("Revised Cart (before passing to Stripe):", safeStringify(revisedCart));
-
+    console.log("Current API Key: ", `${process.env.NEXT_PUBLIC_STRIPE_SECRET}`)
     // Ensure the origin is set correctly
     const headersList = headers();
     const origin = headersList.get("origin") || "http://localhost:3000";
 
     // Initialize Stripe with the secret key from environment variables
-    const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
+    const stripe = new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET!}`, {
       apiVersion: "2024-04-10",
     });
 

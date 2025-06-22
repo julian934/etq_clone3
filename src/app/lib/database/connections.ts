@@ -25,7 +25,17 @@ export const connectToMongodb=async()=>{
   })
   return getData
 }
+export const checkUser=async(userName:string | null | undefined)=>{
+  try {
+    const {data}= await axios.get(`${baseURL}/api/auth/getUserRedux?username=${userName}`);
 
+    return data;
+  } catch (error) {
+    console.log("Error fetching data: ", error);
+    return { error: "Data not found", status: 500 };
+  }
+  
+}
 export const getPrice=async(price:string)=>{
   const getData= await fetch(`/api/getprice?price=${price}`).then((vals)=>{
     return vals.json()
@@ -71,9 +81,11 @@ export const getProducts=async()=>{
   }
 }
 export const getCartItem=async(id:string | null | undefined)=>{
+  console.log('PAssed ID: ', id)
   try {
+    console.log('PAssed ID: ', id)
     const { data } = await axios.get(`${baseURL}/api/product?id=${id}`);
-    console.log('Current returned Data: ', data)
+    console.log('Current returned cartID  Data: ', data)
     return data?.data; // ✅ Direct return
   } catch (error) {
     console.error("Error fetching products:", error);
