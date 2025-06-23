@@ -17,10 +17,13 @@ const Cart = (props: Props) => {
   const ctx=useContext(StoreStateContext);
   const currData:any=ctx.userState;
   const session=useSession();
+
   const handleRemove=async(id:any)=>{
+    
 
 
-  }
+  };
+
   const shippingCost=0//Add SHipping 
   const totalCost=0 //Add Shipping + total
   console.log("Current User Session: ", session?.data?.user);

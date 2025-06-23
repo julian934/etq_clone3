@@ -1,23 +1,41 @@
 'use client'
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import { useQuery } from '@tanstack/react-query'
 import { getCartItem, getItem } from '@/app/lib/database/connections'
 import Dropdown from '../../ui/dropdown/dropdown'
 import Image from 'next/image'
 import { getItemPrice } from '@/app/lib/database/connections'
+import { StoreStateContext } from '@/app/lib/context/storeContext'
+import axios from 'axios'
+import { Session } from 'next-auth'
+import { useSession } from 'next-auth/react'
 
 type Props = {}
 
 const CartItemData = ({id,quantity}:{id:any, quantity?:number | any}) => {
   const [priceData,setPriceData]=useState<any>()
+  const [moddedCart,setModdedCart]=useState<any>(null);
+  const ctx=useContext(StoreStateContext);
+  const session=useSession();
+  const currData:any=ctx.userState;
     const {data}=useQuery({
         queryKey:['Cart Item',id],
         queryFn:()=>getCartItem(id),
         staleTime:1000 * 60 * 5
     });
     const handleRemove=async(id:any)=>{
+    //const filteredID=currData?.userCart?.filter((val:any)=>val.product!=id);
+    const newCart=quantity>1?currData?.userCart?.map((val:any)=>{
+        return {
+          product:val?.product,
+          price:val?.price,
+          quantity:quantity-1
+        }
 
-
+    }):currData?.userCart?.filter((val:any)=>val.product!=id);
+    
+    setModdedCart(newCart);
+    await axios.post(`/api/auth/updateUserCart?username=${session?.data?.user?.name}`,{newCart})
     }
     const shippingCost=0
     const totalCost=0 
@@ -48,6 +66,7 @@ const CartItemData = ({id,quantity}:{id:any, quantity?:number | any}) => {
       console.log("ID: ", id)
       console.log("quantity: ", quantity)
       if(priceData!=undefined) console.log("Price Data: ", priceData)
+        if(moddedCart!=undefined && moddedCart!=null) console.log('removed Item: ',moddedCart)
   return (
     <div className=' flex  text-black space-x-4 justify-around  text-black bg-white' >
       <div className='flex max-sm:flex-col justify-around md:justify-between p-4 space-x-2 ' >

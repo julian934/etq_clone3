@@ -21,7 +21,7 @@ import minus from '@/app/localImages/UI/black-minus.png'
 import square from '@/app/localImages/UI/black-square.png'
 import whiteArrow from "@/app/localImages/UI/white-right-arrow.png"
 import arrowCircle from '@/app/localImages/UI/arrow-circle.png'
-
+import axios from 'axios'
 
 type Props = {id:string}
 
@@ -69,13 +69,15 @@ const Item = ({params}:{params: Props | undefined}) => {
       priceData==undefined && fetchPrice() 
       
       },[data,priceData]);
-  const handleAddToCart=(id:string | null | undefined,price:string | null | undefined)=>{
+  const handleAddToCart=async(id:string | null | undefined,price:string | null | undefined)=>{
     console.log("Current ID: ", id)
     console.log("Current Price: ", price)
     ctx.addToCart(id,price)
     console.log("Calling updateUser with:", session?.user?.name, ctx.userState);
     if (session?.user?.name && ctx.userState) {
-      updateUser(session.user.name, ctx.userState); // assuming name is being used as "username"
+      const newCart=ctx.userState
+     // updateUser(session.user.name, ctx.userState); // assuming name is being used as "username"
+      await axios.post(`/api/auth/updateUserCart?username=${session?.user?.name}`,{newCart})
     }
   }
 
