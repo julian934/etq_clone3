@@ -28,7 +28,7 @@ const Cart = (props: Props) => {
     <div className=' top-8  text-black ' >
      
       <motion.button onClick={()=>setActive(!active)} className='flex rounded-2xl w-8  mt-4 justify-center bg-black gap-4' >
-           <h1 className='text-white flex' >{currData? currData?.userCart.length:0}</h1>
+           <h1 className='text-white flex' >{currData? currData?.userCart?.length:0}</h1>
       </motion.button>
       <motion.div className='  fixed  right-28 min-h-[500px] max-h-[800px] min-w-[500px] overflow-hidden  right-8  ' >
             {active && currData!=null && currData!=undefined ? <div className='max-h-[500px] bg-white ' >
