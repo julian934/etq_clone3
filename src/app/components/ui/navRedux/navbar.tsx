@@ -76,6 +76,9 @@ const NavBar = (props: Props) => {
       if (userData && ctx.userState === null) {
         ctx.setUserState(userData);
       }
+      if(sessionData?.user==undefined){
+        localStorage.setItem("userState", '')
+      }
     }, [userData]);
   
     useEffect(() => {
