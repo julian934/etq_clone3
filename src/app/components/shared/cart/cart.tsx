@@ -15,7 +15,7 @@ type Props = {}
 const Cart = (props: Props) => {
   const [active,setActive]=useState<any>(null);
   const ctx=useContext(StoreStateContext);
-  const currData:any=ctx.userState;
+  const currData:any=ctx?.userState;
   const session=useSession();
 
   const handleRemove=async(id:any)=>{

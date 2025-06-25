@@ -819,7 +819,7 @@ const NavBar = (props: Props) => {
                   </motion.button>
                  
             </motion.div>
-            {ctx.userState && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
+            {ctx?.userState &&!ctx?.userState?.error && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
               
               
               <div className='flex flex-col w-full justify-around self-end justify-end pt-12  p-2 space-y-8 ' >
@@ -848,7 +848,7 @@ const NavBar = (props: Props) => {
                 
               </div>
             </motion.div>}
-            {!login  &&!ctx.userState && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
+            {!login  &&!ctx?.userState && <motion.div className='flex bg-white  flex-col justify-between space-y-4 ' >
               
               
               <div className='flex flex-col w-full justify-around self-end justify-end pt-12  p-2 space-y-8 ' >
