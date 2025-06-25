@@ -36,7 +36,7 @@ const Cart = (props: Props) => {
            <h1 className='text-white flex' >{currData && session?.data?.user!=undefined? currData?.userCart?.length:0}</h1>
       </motion.button>
       <motion.div className='  fixed  right-28 min-h-[500px] max-h-[800px] min-w-[500px] overflow-hidden  right-8  ' >
-            {active && currData!=null && currData!=undefined && session?.data?.user!=undefined && currData?.userCart?.length>1 ? <div className='max-h-[500px] bg-white ' >
+            {active && currData!=null && currData!=undefined && session?.data?.user!=undefined  ? <div className='max-h-[500px] bg-white ' >
                 { currData!=undefined &&  currData?.userCart!=undefined && currData?.userCart?.map((vals:any)=><div className='flex flex-col gap-2 space-y-2 ' key={vals?.product} >
                   
               <div className='flex w-full  self-center border-2 bg-white' >
