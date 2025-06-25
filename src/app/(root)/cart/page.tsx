@@ -94,11 +94,11 @@ const Cart = (props: Props) => {
   //console.log("cart data: ", ctx.cartItems?.userCart)
   if(currUser!=undefined) console.log("Testing curr user: ", currUser)
   return (
-    <div className="  bg-white  text-black  " >
-      <div className=" border-2 border-black z-100 w-full " >
+    <div className="  bg-white min-h-screen text-black  " >
+      <div className="  z-100 w-full " >
       <NavBar/>
       </div>
-       <div className="flex flex-col  text-black  border-2 border-black px-2 " >
+       <div className="flex flex-col  text-black  px-2  z-[9999] "  >
           <h1 className=" font-semibold " >Your bag</h1>
           <div className="flex flex-row  space-x-2 " >
             <Link className=" flex flex-row  space-x-2 "  href='/' >
@@ -107,7 +107,7 @@ const Cart = (props: Props) => {
              </Link>
           </div>
        </div>
-        <div className="flex min-h-40vh space-y-2 p-4  flex-col  self-center justify-self-end w-4/5 max-sm:w-full z-100 text-black " >
+        <div className="flex min-h-40vh md:min-h-48vh md:mt-36 space-y-2 p-4 md:h-full flex-col  self-center justify-self-center w-4/5 max-sm:w-full z-[9999]  text-black  " >
           <div className="flex justify-around w-full " >
              <h1 className=" " >Product</h1>
              <h1 className=" " >Color</h1>
@@ -115,24 +115,24 @@ const Cart = (props: Props) => {
              <h1 className=" " >QTY</h1>
              <h1 className="" > Price </h1>
           </div>
-          <hr className="bg-black w-full  space-x-4" />
+          <hr className="bg-black w-full  space-x-4 " />
            {currUser && currUser?.userCart?.map((item:any)=><div key={item.product} className=" flex text-black  flex-row w-full h-12 space-y-2  " >
             
             <CartItemData id={item?.product} quantity={item?.quantity} />
            </div>)}
            <div className="flex flex-col justify-end self-end w-1/3 space-y-4" >
-           <div className="flex flex-row space-between w-full " >
+           <div className="flex pt-20 flex-row space-between w-full " >
               <h3 className="" > Shipping </h3>
               <h3 className="" >{totalShipping}</h3>
            </div>
-           <div className="flex flex-row space-between w-full" >
+           <div className="flex  flex-row space-between w-full" >
             <h3 className="" > Total  </h3>
             <h3 className=" " >{totalCost}</h3>
            </div>
            <button className=" w-full h-12 bg-black text-white text-center  "  onClick={handleCheckout} >Checkout</button>
            </div>
         </div>
-       <div className=" row-start-4 col-start-1 col-span-4" >
+       <div className=" relative md:top-72 " >
        <Footer/>
        </div>
        
