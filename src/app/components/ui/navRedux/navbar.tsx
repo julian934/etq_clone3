@@ -72,9 +72,12 @@ const NavBar = (props: Props) => {
       staleTime:1000*60*5
      })
 
+     const signedOutRef = useRef(false);
+
      useEffect(() => {
-      if(status=='unauthenticated'){
-        signOut();
+      if (status === 'unauthenticated' && !signedOutRef.current) {
+        signedOutRef.current = true;
+        signOut({ redirect: false }); // optional: redirect: false prevents reload
       }
       if (userData && ctx.userState === null) {
         ctx.setUserState(userData);
