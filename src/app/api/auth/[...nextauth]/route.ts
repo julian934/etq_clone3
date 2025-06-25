@@ -69,12 +69,17 @@ const handler = NextAuth({
     secret:process.env.NEXT_PUBLIC_NEXTAUTH_SECRET,
     callbacks:{
         session({session,token,user}){
+         
           if (session.user && token?.sub ) {
            // session.user.name = token.sub
           }
             return session
         }
     },
+    session: {
+      strategy: 'jwt',
+      maxAge: 60 * 10, // 10 minutes
+    }
    
 })
 
