@@ -52,7 +52,7 @@ const NavBar = (props: Props) => {
     const passWordRef=useRef<any>();
     const userRef=useRef<any>()
     const searchRef=useRef<any>();
-    const {data:sessionData}=useSession()
+    const {data:sessionData,status}=useSession()
       const ctx=useContext(StoreStateContext);
       const currData:any=ctx.userState;
    /* const {data}=useQuery({
@@ -73,8 +73,8 @@ const NavBar = (props: Props) => {
      })
 
      useEffect(() => {
-      if(userData?.status==500){
-        localStorage.clear();
+      if(status=='unauthenticated'){
+        signOut();
       }
       if (userData && ctx.userState === null) {
         ctx.setUserState(userData);
@@ -82,7 +82,7 @@ const NavBar = (props: Props) => {
       if(sessionData?.user==undefined){
         localStorage.setItem("userState", '')
       }
-    }, [userData]);
+    }, [userData,status]);
   
     useEffect(() => {
       function onKeyDown(event: KeyboardEvent) {
