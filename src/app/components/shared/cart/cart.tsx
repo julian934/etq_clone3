@@ -51,7 +51,7 @@ const Cart = (props: Props) => {
            
             </div>
              :null}
-            {active && currData!= null && currData!=undefined && session?.data?.user!=undefined && currData?.userCart?.length>1 ?
+            {active && currData!= null && currData!=undefined && session?.data?.user!=undefined  ?
             <div className='flex justify-self-end flex-col p-2 bg-white min-h-[50px] w-1/3 ' >
                <div className='flex  ' >
                     <hr className='flex w-full' />
