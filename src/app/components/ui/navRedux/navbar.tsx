@@ -338,26 +338,26 @@ const NavBar = (props: Props) => {
                          <Link  href='/collections/sneakers'>Sneakers</Link> 
                          <Link href='/collections/loafers' >Loafers</Link>
                          <Link href='/collections/desert-boots' >Desert Boots</Link>
-                         <Link href='/' >Runners</Link>
+                         <Link href='/collections/runners' >Runners</Link>
                          <Link href='//collections/dressed-footwear'>Dressed Footwear</Link>
                          <Link href='/'>Sandals</Link>    
                       </div>  
                       <div className='flex flex-col space-y-4' >
                         <h1 className='text-xl' >Collections</h1>
-                        <Link href='/' >White Sneakers</Link>
-                        <Link href='/' >Black Sneakers</Link>
-                        <Link href='/' >Suede Footwear</Link>
-                        <Link href='/' >Favorites</Link>
-                        <Link href='/' >Spring Sales</Link>
+                        <Link href='/collections/white-sneakers' >White Sneakers</Link>
+                        <Link href='/collections/black-sneakers' >Black Sneakers</Link>
+                        <Link href='/collections/suede-footwear' >Suede Footwear</Link>
+                        <Link href='/collections/favorites' >Favorites</Link>
+                        <Link href='/collections/sales' >Spring Sales</Link>
                         <Link href='/' >Shoe Care</Link>
                       </div>
                       <div className='flex flex-col space-y-4 ' >
                           <h1 className='text-xl' >Material</h1>
-                          <Link  href='/'>Full Grain Leather</Link>
-                          <Link href='/' >Mediterranean Suede</Link>
-                          <Link href='/' >Nubuck leather</Link>
-                          <Link href='/' >Premium Nappa</Link>
-                          <Link href='/' >Premium Suede</Link>
+                          <Link  href='/collections/full-grain-leather'>Full Grain Leather</Link>
+                          <Link href='/collections/mediterranean-suede' >Mediterranean Suede</Link>
+                          <Link href='/collections/nubuck-leather' >Nubuck leather</Link>
+                          <Link href='/collections/premium-nappa' >Premium Nappa</Link>
+                          <Link href='/collections/premium-suede' >Premium Suede</Link>
                       </div>
                      <div>
 
@@ -476,27 +476,27 @@ const NavBar = (props: Props) => {
                          <Link href='/collections/menswear' >All Menswear</Link> 
                          <Link  href='/collections/t-shirts'>T-Shirts</Link> 
                          <Link href='/collections/polo-shirts' >Polo Shirts</Link>
-                         <Link href='/' >Sweaters</Link>
+                         <Link href='/collections/sweaters' >Sweaters</Link>
                          <Link href='/collections/trousers' >Trousers</Link>
-                         <Link href='/'>Multi-Packs</Link>
-                         <Link href='/'>Socks</Link>    
+                         <Link href='/collections/multi-packs'>Multi-Packs</Link>
+                         <Link href='/collections/regular-socks'>Socks</Link>    
                       </div>  
                       <div className='flex flex-col  text-black  space-y-4' >
                         <h1 className='text-xl' >Collections</h1>
-                        <Link href='/' >No Show Socks</Link>
-                        <Link href='/' >Regular Socks</Link>
-                        <Link href='/' >Oversized Shirts</Link>
-                        <Link href='/' >Multi-Packs</Link>
-                        <Link href='/' >Spring Sales</Link>
+                        <Link href='/collections/no-show-socks' >No Show Socks</Link>
+                        <Link href='/collections/regular-socks' >Regular Socks</Link>
+                        <Link href='/collections/oversized-shirts' >Oversized Shirts</Link>
+                        <Link href='/collections/multi-packs' >Multi-Packs</Link>
+                        <Link href='/collections/sales' >Spring Sales</Link>
                         
                       </div>
                       <div className='flex   text-black  flex-col space-y-4 ' >
                           <h1 className='text-xl' >Material</h1>
-                          <Link  href='/'>American Fleece</Link>
-                          <Link href='/' >Italian Fleece</Link>
-                          <Link href='/' >Mercerized Pima Cotton</Link>
-                          <Link href='/' >Pique Knit</Link>
-                          <Link href='/' >Punti di Roma</Link>
+                          <Link  href='/collections/american-fleece'>American Fleece</Link>
+                          <Link href='/collections/italian-fleece' >Italian Fleece</Link>
+                          <Link href='/collections/mercerized-pima-cotton' >Mercerized Pima Cotton</Link>
+                          <Link href='/collections/pima-knit' >Pique Knit</Link>
+                          <Link href='/collections/punti-di-roma' >Punti di Roma</Link>
                       </div>
                      <div>
 
@@ -636,7 +636,7 @@ const NavBar = (props: Props) => {
               <div className='flex flex-row text-black justify-around pb-4' >
                   <div className='flex flex-col space-y-4 ' >
                      <h1 className='' >Info</h1>
-                      <Link className='' href='/' >Shipping &amp; Delivery</Link>
+                      <Link className='' href='/shipping' >Shipping &amp; Delivery</Link>
                       <Link className='' href='/' >Returns &amp; Exchanges</Link>
                       <Link className='' href='/' >Size Guide</Link>
                       <Link  className=' ' href='/'>Product Care</Link>
@@ -653,10 +653,10 @@ const NavBar = (props: Props) => {
                  </div>
                  <div className='flex flex-col space-y-4 ' >
                   <h1> Featured</h1>
-                    <Link className='' href='/' >Loafers</Link>
-                    <Link className='' href='/' >Premium Suede</Link>
+                    <Link className='' href='/collections/loafers' >Loafers</Link>
+                    <Link className='' href='/collections/premium-suede' >Premium Suede</Link>
                     <Link className='' href='/' >Essence</Link>
-                    <Link className='' href='/' >Premium Nappa</Link>
+                    <Link className='' href='/collections/punti-di-roma' >Premium Nappa</Link>
                  </div>
               </div>
 
@@ -748,12 +748,12 @@ const NavBar = (props: Props) => {
               <div className='flex flex-row justify-around w-full  ' >
                   <div className='flex flex-col space-y-4' >
                      <h1 className='text-xl' >Contact</h1>
-                      <Link className='' href='/' >Email us here</Link>
-                      <Link className='' href='/' >{/* Phone Number*/}</Link>
+                      <Link className='' href='/contact' >Email us here</Link>
+                      <Link className='' href='/contact' >{/* Phone Number*/}</Link>
                   </div>
                  <div className='flex flex-col space-y-4' >
                   <h1 className='text-xl' >Information</h1>
-                    <Link className='' href='/' >Shipping & Delivery</Link>
+                    <Link className='' href='/shipping' >Shipping & Delivery</Link>
                     <Link className=''  href='/' >Returns & Exchanges</Link>
                     <Link className=''  href='/' >Size guide</Link>
                     <Link className='' href='/'  >Care guide</Link>  
@@ -761,10 +761,10 @@ const NavBar = (props: Props) => {
                  </div>
                  <div className='flex flex-col space-y-4 ' >
                   <h1 className='text-xl' > Frequently asked questions</h1>
-                    <Link className='' href='/' >Do I need an account to place an order?</Link>
-                    <Link className='' href='/' >How do I return or exchange?</Link>
-                    <Link className='' href='/' >Do you ship to my country?</Link>
-                    <Link className='' href='/' >How much does the delivery cost?</Link>
+                    <Link className='' href='/faq' >Do I need an account to place an order?</Link>
+                    <Link className='' href='/faq' >How do I return or exchange?</Link>
+                    <Link className='' href='/faq' >Do you ship to my country?</Link>
+                    <Link className='' href='/faq' >How much does the delivery cost?</Link>
                  </div>
               </div>
 

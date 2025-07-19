@@ -5,13 +5,20 @@ export async function GET(){
 
   try {
      const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`);
-    if(stripe){
+    /*if(stripe){
          const products=await stripe.products.search({
-            query:"metadata['category']:'polo-shirt' OR metadata['category']:'polo-shirt' OR metadata['category']:'tshirt' OR metadata['category']:'trousers'"
+            query:"metadata['category']:'polo-shirt' OR metadata['category']:'polo-shirt' OR metadata['category']:'tshirt' OR metadata['category']:'trousers' OR metadata['category']:'menswear' "
          });
          console.log('Product query: ', products);
          return NextResponse.json({data:products});
-    }
+    }*/
+         if(stripe){
+          const products=await stripe.products.search({
+             query:" metadata['category']:'menswear' "
+          });
+          console.log('Product query: ', products);
+          return NextResponse.json({data:products});
+     }
 
     return NextResponse.json({message: 'Could not connect to database'}, {status:304})
     

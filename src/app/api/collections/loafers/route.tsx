@@ -10,7 +10,7 @@ export async function GET(request:NextRequest){
         if(stripe){
             console.log("Connection status: ", stripe)
             const loafers=await stripe.products.search({
-                query:'metadata["category"]:"loafers"'
+                query:'metadata["sub-category"]:"loafers"'
             });
             
             

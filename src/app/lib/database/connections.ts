@@ -281,6 +281,74 @@ export const getLoafers=async()=>{
   }
 }
 
+
+export const getRunners=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/runners`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getWhiteSneakers=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/white-sneakers`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getBlackSneakers=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/black-sneakers`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getSuedeFootwear=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/suede-footwear`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getShoeFavorites=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/favorites`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getSpringSales=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/spring-sales`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+
 export const getPoloShirts=async()=>{
   try {
     const data=await axios.get(`${baseURL}/api/collections/polo-shirts`);
@@ -336,3 +404,165 @@ export const getTrousers=async()=>{
   }
 }
 
+export const noShowSocks=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/no-show-socks`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const regularSocks=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/regular-socks`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const oversizedShirts=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/oversized-shirts`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const multiPacks=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/multi-packs`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const menswearSpringSales=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/menswear-spring-sales`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const americanFleece=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/american-fleece`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getNubuckLeather=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/nubuck-leather`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+export const getMediterraneanSuede=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/mediterranean-suede`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getFullGrainLeather=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/full-grain-leather`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+export const getPremiumNappa=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/premium-nappa`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const getPremiumSuede=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/premium-suede`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const italianFleece=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/italian-fleece`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const mercerizedPimaCotton=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/mercerized-pima-cotton`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const piqueKnit=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/pique-knit`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}
+
+export const puntiDiRoma=async()=>{
+  try {
+    const data=await axios.get(`${baseURL}/api/collections/punti-di-roma`);
+    console.log('Current Data: ', data);
+    return data.data
+  } catch (error) {
+    console.log('error: ', error);
+    return {error:'Data not found',status:500}
+  }
+}

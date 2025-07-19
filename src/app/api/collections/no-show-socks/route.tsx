@@ -9,12 +9,12 @@ export async function GET(request:NextRequest){
         
         if(stripe){
             console.log("Connection status: ", stripe)
-            const dressedFootwear=await stripe.products.search({
-                query:'metadata["sub-category"]:"dressed-footwear"'
+            const data=await stripe.products.search({
+                query:'metadata["sub-category"]:"no-show-socks"'
             });
           
             
-            return NextResponse.json({data:dressedFootwear})
+            return NextResponse.json({data:data})
 
         }
 
@@ -26,4 +26,3 @@ export async function GET(request:NextRequest){
     }
 
 }
-

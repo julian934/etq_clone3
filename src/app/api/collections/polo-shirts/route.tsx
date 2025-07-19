@@ -10,7 +10,7 @@ export async function GET(request:NextRequest){
         if(stripe){
             console.log("Connection status: ", stripe)
             const poloShirts=await stripe.products.search({
-                query:'metadata["category"]:"polo-shirts"'
+                query:'metadata["sub-category"]:"polo-shirts"'
             });
             
             
