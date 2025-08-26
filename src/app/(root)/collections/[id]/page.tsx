@@ -22,7 +22,7 @@ import square from '@/app/localImages/UI/black-square.png'
 import whiteArrow from "@/app/localImages/UI/white-right-arrow.png"
 import arrowCircle from '@/app/localImages/UI/arrow-circle.png'
 import axios from 'axios'
-
+import ItemModal from '@/app/components/ui/itemModal/itemModal'
 type Props = {id:string}
 
 const Item = ({params}:{params: Props | undefined}) => {

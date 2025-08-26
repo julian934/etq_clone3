@@ -10,6 +10,7 @@ import Image from 'next/image'
 import {AnimatePresence} from "motion/react"
 import GetPrice from '@/app/components/hooks/getPrice'
 import filterImg from '@/app/localImages/UI/filter-black.png'
+import ViewChanger from '@/app/components/ui/viewChanger/view'
 
 type Props = {}
 

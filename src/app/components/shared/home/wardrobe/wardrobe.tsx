@@ -41,15 +41,15 @@ const Wardrobe = (props: Props) => {
               <h2 className='text-2xl' >
                  Explore a selection of our wardrobe essentials.
               </h2>
-              <Link className='flex max-sm:hidden self-center' href='/' >Shop all</Link>     
+              <Link className='flex max-sm:hidden self-center' href='/collections/all' >Shop all</Link>     
               </motion.div>
-              <motion.div className='flex flex-wrap md:px-4  p-4' >
-                  {wardrobeState && wardrobeState?.data?.map((vals:any)=><Link className=' max-sm:w-1/2 md:w-1/4 md:px-2 ' href={`${vals.link}`} key={vals.label} >
+              <motion.div className='flex  md:px-4  p-4' >
+                  {wardrobeState && wardrobeState?.data?.map((vals:any)=><Link className=' max-sm:w-1/2 md:w-1/4 md:h-full md:px-2 ' href={`${vals.link}`} key={vals.label} >
                         <Image className=' flex max-sm:w-[200px] md:w-[400px] md:h-[500px]  w-full  ' src={vals.images[0]} width={1000} height={1000} quality={100} alt={vals.label} />
-                        <h1 className='flex text-xl' >{vals.label}</h1>
+                        <h1 className='flex text-xl' >{vals.label}</h1>test
                   </Link>)}
               </motion.div>
-              <Link className='flex md:hidden border-2 border-slate-200 text-lg text-center self-center w-20 h-12' href='/' >Shop all</Link>     
+              <Link className='flex md:hidden border-2 border-slate-200 text-lg text-center self-center w-20 h-12' href='/collections/all' >Shop all</Link>     
             </motion.div>
           </AnimatePresence>
       </div>

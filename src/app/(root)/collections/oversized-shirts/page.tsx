@@ -17,6 +17,7 @@ import Filter from '@/app/components/ui/filterModal/filter'
 import GetPrice from '@/app/components/hooks/getPrice'
 import leftArrow from '@/app/localImages/UI/left-1.png'
 import filterImg from '@/app/localImages/UI/filter-black.png'
+import ViewChanger from '@/app/components/ui/viewChanger/view'
 type Props = {}
 
 const Oversized_Shirts = (props: Props) => {

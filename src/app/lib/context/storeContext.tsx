@@ -30,6 +30,10 @@ interface StoreContextType {
   filterString: string | null;
   sortStr: (str: string) => void;
   sortString: string | null;
+  modal:string | null,
+  square:string | null,
+  activeSquare:(str:string)=>void,
+  activeModal:(str:string)=>void
 }
 
 const initialContext: StoreContextType = {
@@ -50,6 +54,10 @@ const initialContext: StoreContextType = {
   filterString: null,
   sortStr: () => {},
   sortString: null,
+  modal:null,
+  square:null,
+  activeSquare:()=>{},
+  activeModal:()=>{}
 };
 
 export const StoreStateContext = createContext<StoreContextType>(initialContext);
@@ -68,6 +76,8 @@ export const StoreStateContextProvider: FC<StoreStateContextProviderProps> = ({ 
   const [cartItems, setCartItems] = useState<any>(null);
   const [filterString, setFilterString] = useState<string | null>(null);
   const [sortString, setSortString] = useState<string | null>("");
+  const [square,setSquare]=useState<any>(null);
+  const [modal,setModal]=useState<any>(null);
 
   // Load user from local storage on page load
   useEffect(() => {
@@ -137,10 +147,28 @@ export const StoreStateContextProvider: FC<StoreStateContextProviderProps> = ({ 
   const sortStr = (str: string) => {
     setSortString(str);
   };
+  const activeSquare=(str:string)=>{
+    console.log('Current Data: ', str)
+    let currData=str
+    currData=='active'?setSquare(currData):setSquare(null);
+  }
+  const activeModal=(str:string)=>{
+    
+      console.log('Current Data: ', str)
+      let currData=str
+      currData=='active'?setModal(currData):setModal(null);
+      
+  }
 
   return (
     <StoreStateContext.Provider
       value={{
+        activeSquare,
+        activeModal,
+        modal,
+        
+        square,
+        
         state,
         testData,
         dataCheck,

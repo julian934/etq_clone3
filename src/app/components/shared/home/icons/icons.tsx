@@ -34,9 +34,9 @@ const Icons = (props: Props) => {
   return (
     <div className=' px-2' >
       
-      <div className='' >
-        {data && <Image className='w-full h-full' src={data?.data[0]?.images[0]} width={400} height={400} alt=' Icons' />}
-          <div className='md:-top-12' >
+      <div className='relative h-5/6 ' >
+        {data && <Image className='w-full h-full' src={data?.data[0]?.images[0]} width={1000} height={1000} alt=' Icons' />}
+          <div className=' md:-top-12' >
             <h1 className='' >Evolving the classics.</h1>
               <h2 className='' >Icons only.</h2>
                <Link className='' href='/' >Read more</Link>

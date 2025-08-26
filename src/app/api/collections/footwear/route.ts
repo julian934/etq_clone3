@@ -7,7 +7,7 @@ export async function GET(){
      const stripe=await new Stripe(`${process.env.NEXT_PUBLIC_STRIPE_SECRET}`);
     if(stripe){
          const products=await stripe.products.search({
-            query:"metadata['category']:'desert-boots' OR metadata['category']:'dressed-footwear' OR metadata['category']:'sneakers' OR metadata['category']:'loafers'"
+            query:"metadata['category']:'footwear' "
          });
          console.log('Product query: ', products);
          return NextResponse.json({data:products});

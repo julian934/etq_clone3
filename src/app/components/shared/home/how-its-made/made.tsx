@@ -34,8 +34,8 @@ const Made = (props: Props) => {
   return (
     <div className=' px-2 ' >
       
-      <div className='' >
-        {data && <Image className='w-full h-full' src={data.data[0]?.images[0]} width={400} height={400} alt=' How-Its-Made' />}
+      <div className='h-5/6 relative md:top-0 md:mt-2' >
+        {data && <Image className='w-full h-full' src={data.data[0]?.images[0]} width={1000} height={1000} alt=' How-Its-Made' />}
         
           <div className='' >
             <h1 className='' >We do it with grace.</h1>

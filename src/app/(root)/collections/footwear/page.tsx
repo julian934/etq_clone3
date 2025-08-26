@@ -12,7 +12,8 @@ import Link from 'next/link'
 import GetPrice from '@/app/components/hooks/getPrice'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import Filter from '@/app/components/ui/filterModal/filter'
-
+import ViewChanger from '@/app/components/ui/viewChanger/view'
+import ItemModal from '@/app/components/ui/itemModal/itemModal'
 type Props = {}
 
 const FootWear = (props: Props) => {
@@ -59,14 +60,18 @@ const FootWear = (props: Props) => {
         <div className='w-full' >
          <div className='flex justify-between p-8 ' >
            <h1 className='' >{!filteredData? AllData?.data?.data.length:filteredData.length} {filteredData && filteredData?.length>1?'items':'item'}</h1>
+           <div className='relative md:left-60' >
+               <ViewChanger/>
+            </div>
           <div className='z-9999' >
             
             
-            <motion.button className='z-9999 ' onClick={()=>stateSwitcher()} >
+            <motion.button className=' relative md:left-96 z-9999 ' onClick={()=>stateSwitcher()} >
             <Image className='flex w-6 h-6 justify-center ' src={filterImg} alt='Filter Image' />
               <h1 className='' >Filter & Sort</h1>
               </motion.button>
             </div>
+           
             <div className=' relative md:-top-20 md:right-96  ' >
          <motion.div className='flex md:justify-center z-9999 ' >
                 {filterActive && <Filter items={AllData} />}
@@ -77,10 +82,12 @@ const FootWear = (props: Props) => {
         
          <div className='flex flex-wrap self-center w-full p-2 gap-x-8' >
             {AllData && ctx.filterString==null&& ctx.sortString=='' && AllData?.data?.data?.map((items:any)=>
-            <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
+            
+            <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8 ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
-                <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
+                
+                <ItemModal currItem={items} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
                
                 <GetPrice id={items?.id} />
@@ -90,7 +97,8 @@ const FootWear = (props: Props) => {
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
-                <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
+                
+                <ItemModal currItem={items} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
                
                 <GetPrice id={items?.id} />
@@ -100,7 +108,8 @@ const FootWear = (props: Props) => {
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
-                <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
+           
+                <ItemModal currItem={items} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
                
                 <GetPrice id={items?.id} />
@@ -110,7 +119,8 @@ const FootWear = (props: Props) => {
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
-                <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
+                
+                <ItemModal currItem={items} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
                
                 <GetPrice id={items?.id} />
@@ -120,7 +130,8 @@ const FootWear = (props: Props) => {
             <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
-                <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />
+                
+                <ItemModal currItem={items} />
                 <h1 className='text-lg w-40' >{items.name}</h1>
                
                 <GetPrice id={items?.id} />

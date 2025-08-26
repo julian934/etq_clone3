@@ -114,31 +114,31 @@ const MobileMenu = (props: Props) => {
                                       <div className='flex flex-col space-y-4 p-4  ' >
                                         <Link href='/collections/footwear' >
                                         <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[31]?.images[0]} alt='All Footwear' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[31]?.images[0]} alt='All Footwear' />
                                           <h1 className='' >All Footwear</h1>
                                         </div>
                                         </Link>
                                         <Link href='/collections/sneakers' >
                                         <div className='flex flex-col  ' >
-                                          <Image className='' height={100} width={100} src={data?.data[10]?.images[0]} alt='Sneakers' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[10]?.images[0]} alt='Sneakers' />
                                           <h1 className='' >Sneakers</h1>
                                         </div>
                                         </Link>
                                         <Link href='/collections/loafers' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[23]?.images[0]} alt='loafers' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[23]?.images[0]} alt='loafers' />
                                             <h1 className='' >Loafers</h1>
                                            </div>
                                         </Link>
                                         <Link href='/collections/desert-boots' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[35]?.images[0]} alt='desert-boots' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[35]?.images[0]} alt='desert-boots' />
                                           <h1 className='' >Desert Boots</h1>
                                            </div>
                                         </Link>
                                         <Link href='/collections/dressed-footwear' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[24]?.images[0]} alt='dressed-footwear' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[24]?.images[0]} alt='dressed-footwear' />
                                           <h1 className='' >Dressed Footwear</h1>
                                            </div>
                                         </Link>
@@ -162,32 +162,32 @@ const MobileMenu = (props: Props) => {
                                       <div className='flex flex-col space-y-4 p-4 ' >
                                         <Link href='/collections/menswear' >
                                         <div className='flex flex-col ' >
-                                          <Image className=''height={100} width={100}  src={data?.data[2]?.images[0]} alt='All Menswear' />
+                                          <Image className=''height={100} width={100}  src={data?.data?.data[2]?.images[0]} alt='All Menswear' />
                                           <h1 className='' >All Menswear</h1>
                                         </div>
                                         </Link>
                                         <Link href='/collections/t-shirts' >
                                         <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[3]?.images[0]} alt='T-Shirts' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[3]?.images[0]} alt='T-Shirts' />
                                           <h1 className='' >T-Shirts</h1>
                                           
                                         </div>
                                         </Link>
                                         <Link href='/collections/polo-shirts' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[20]?.images[0]} alt='Polo-Shirts' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[20]?.images[0]} alt='Polo-Shirts' />
                                           <h1 className='' >Polo-Shirts</h1>
                                            </div>
                                         </Link>
                                         <Link href='/collections/shirts' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data[40]?.images[0]} alt='shirts' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[40]?.images[0]} alt='shirts' />
                                           <h1 className='' >Shirts</h1>
                                            </div>
                                         </Link>
                                         <Link href='/collections/trousers' >
                                          <div className='flex flex-col ' >
-                                          <Image className='' height={100} width={100} src={data?.data?.images[0]} alt='trousers' />
+                                          <Image className='' height={100} width={100} src={data?.data?.data[6]?.images[0]} alt='trousers' />
                                           <h1 className='' >Trousers</h1>
                                            </div>
                                         </Link>
@@ -198,49 +198,49 @@ const MobileMenu = (props: Props) => {
                             <motion.div className='flex flex-wrap overflow-hidden space-x-4  ' >
                               <Link href='/collections/sneakers' >
                                 <div className=' ' >
-                                   <Image className=' ' width={100} height={100} src={data?.data[8]?.images[0]} alt='Sneakers' />
+                                   <Image className=' ' width={100} height={100} src={data?.data?.data[8]?.images[0]} alt='Sneakers' />
                                   <   h1 className='' >Sneakers</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/t-shirts' >
                               <div className='flex    flex-col' >
-                                <Image className=' h-20 w-20' width={100} height={100} src={data?.data[0]?.images[0]} alt='T-Shirts' />
+                                <Image className=' h-20 w-20' width={100} height={100} src={data?.data?.data[0]?.images[0]} alt='T-Shirts' />
                                  <h1 className='' >T-Shirts</h1>
                               </div>
                               </Link>
                               <Link href='/collections/loafers' >
                                 <div className='flex   flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[24]?.images[0]} alt='Loafers' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[24]?.images[0]} alt='Loafers' />
                                   <   h1 className='' >Loafers</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/trousers' >
                                 <div className='flex  flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[7]?.images[0]} alt='Trousers' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[7]?.images[0]} alt='Trousers' />
                                   <   h1 className='' >Trousers</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/dressed-footwear' >
                                 <div className='flex flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[30]?.images[0]} alt='dressed-footwear' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[30]?.images[0]} alt='dressed-footwear' />
                                   <   h1 className='' >Dressed Footwear</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/shirts' >
                                 <div className='flex flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[20]?.images[0]} alt='Shirts' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[20]?.images[0]} alt='Shirts' />
                                   <   h1 className='' >Shirts</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/desert-boots' >
                                 <div className='flex  flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[35]?.images[0]} alt='desert-boots' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[35]?.images[0]} alt='desert-boots' />
                                   <   h1 className='' >Desert Boots</h1>
                                 </div>
                               </Link>
                               <Link href='/collections/polo-shirts' >
                                 <div className='flex  flex-col' >
-                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data[21]?.images[0]} alt='Polo Shirts' />
+                                   <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[21]?.images[0]} alt='Polo Shirts' />
                                   <   h1 className='' >Polo-Shirts</h1>
                                 </div>
                               </Link>
@@ -277,26 +277,26 @@ const MobileMenu = (props: Props) => {
                               </motion.div>
 
                                <motion.div className=' flex flex-col space-y-4' >
-                                 <Link href='/' className=''  >Shipping &amp; Delivery</Link>
-                                 <Link href='/' className='' >Returns &amp; Exchanges</Link>
+                                 <Link href='/shipping-delivery' className=''  >Shipping &amp; Delivery</Link>
+                                 <Link href='/help-returns-exchanges' className='' >Returns &amp; Exchanges</Link>
                                  <Link href='/' className='' >Size Guide</Link>
-                                 <Link href='/' className=''>Product Care</Link>
-                                 <Link href='/' className=''>All Topics & Customer Care</Link>
+                                 <Link href='/care-guide' className=''>Product Care</Link>
+                                 <Link href='/help' className=''>All Topics & Customer Care</Link>
                                 </motion.div>
                                   
                                <motion.div className='py-4' >
                                 <hr className='w-full' />
 
                                 </motion.div>   
-                                 <motion.div className='flex justify-self-center w-1/2 h-1/3 ' >
-                                  {data!=undefined &&  <Image className=' w-full h-full ' width={100} height={100} quality={100} src={data?.data[19]?.images[0]} alt='Spring Sale' />}
+                                 <motion.div className='flex justify-self-center w-4/5 h-1/4 ' >
+                                  {data!=undefined &&  <Image className=' w-full h-full ' width={100} height={100} quality={100} src={data?.data?.data[19]?.images[0]} alt='Spring Sale' />}
                                      
                                   </motion.div>
                                   <motion.div className='flex flex-col  justify-self-center space-y-4 pt-4 ' >
                                     <div className='bg-black w-6 h-6 flex self-center ' ></div>
                                     <h1 className='' >ETQ Amsterdam</h1>
                                     <h3 className='' >+111 11 11 11111</h3>
-                                       <Link className='text-center'  href='/'>Email Us</Link>
+                                       <a className='text-center'  href='mailto:jborner111@gmail.com'>Email Us</a>
                                     </motion.div>
                                          
                                   

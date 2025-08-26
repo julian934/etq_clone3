@@ -11,6 +11,7 @@ import Wardrobe from '@/app/components/shared/home/wardrobe/wardrobe'
 import Icons from '@/app/components/shared/home/icons/icons'
 import Comfort from '@/app/components/shared/home/comfort/comfort'
 import Made from '@/app/components/shared/home/how-its-made/made'
+import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
 type Props = {}
 
 const Home = (props: Props) => {
@@ -22,12 +23,21 @@ const Home = (props: Props) => {
         <Menswear/>
         <Footwear/>
         <Wardrobe/>
-        <motion.div className='flex max-sm:overflow-hidden max-sm:w-[1000px]  md:flex-row md:justify-around ' >
-          <Icons/>
-          <Made/>
-          <Comfort/>
-        </motion.div>
+        <motion.div 
+  className="flex overflow-x-auto gap-4 p-2 md:justify-around"
+>
+  <div className="shrink-0">
+    <Icons />
+  </div>
+  <div className="shrink-0">
+    <Made />
+  </div>
+  <div className="shrink-0">
+    <Comfort />
+  </div>
+</motion.div>
 
+        <LowerBanner/>
         <Footer/>
         </div>
   )

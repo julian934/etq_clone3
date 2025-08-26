@@ -333,7 +333,7 @@ const NavBar = (props: Props) => {
                 <div className='flex' >
                 <div className='flex justify-around items-start p-4  w-2/3' >
                     <div className='flex flex-col space-y-4' >
-                      <h1 className='text-xl' >Type </h1>
+                      <h1 className='text-large' >Type </h1>
                          <Link href='/collections/footwear' >All Footwear</Link> 
                          <Link  href='/collections/sneakers'>Sneakers</Link> 
                          <Link href='/collections/loafers' >Loafers</Link>

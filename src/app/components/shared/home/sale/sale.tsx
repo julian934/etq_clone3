@@ -42,10 +42,14 @@ const Sale = (props: Props) => {
     visible: { opacity: 1, x: 0 }
   }
   return (
-    <motion.div className='flex  max-sm:flex-col' >
-      <AnimatePresence  >
+    <motion.div className='flex  max-sm:flex-col'  >
+      <AnimatePresence >
       <motion.div className='flex  h-lvh w-lvw max-sm:h-4/5 ' >
-      {data &&  <Image className='h-full w-full' src={data?.data?.data[14]?.images[0]} alt={data?.data?.data[14]?.name} width={800} height={800}  quality={100} />}
+      {data && <motion.div  initial={{
+        x:300,
+        opacity:0
+      }} animate={{x:0,opacity:1}} 
+      exit={{x:-300,opacity:0}} > <Image className='h-full w-full' src={data?.data?.data[14]?.images[0]} alt={data?.data?.data[14]?.name} width={800} height={800}  quality={100} /> </motion.div>}
          
       </motion.div>
       <motion.div className='flex flex-col md:self-center ' >

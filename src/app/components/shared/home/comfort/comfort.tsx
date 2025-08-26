@@ -34,12 +34,12 @@ const Comfort = (props: Props) => {
     console.log('Data check: ', data)
   return (
     <div className=' px-2 ' >
-      <div className='' >
-        {data!=undefined && <Image className='w-full h-full' src={data.data[0]?.images[0]} width={400} height={400} alt=' Comfort' />}
+      <div className='relative md:h-5/6 md:top-0 md:mt-2' >
+        {data!=undefined && <Image className='w-full h-full' src={data.data[0]?.images[0]} width={1000} height={1000} alt=' Comfort' />}
         
           <div className='' >
-            <h1 className='' >We do it with grace.</h1>
-              <h2 className='' >Made in Europe.</h2>
+            <h1 className='' >Forever Sunday morning.</h1>
+              <h2 className='' >Endless comfort.</h2>
                <Link className='' href='/' >Read more</Link>
           </div>
       </div>

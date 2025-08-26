@@ -51,9 +51,9 @@ const Footwear = (props: Props) => {
            <motion.div className='flex w-6 h-6  bg-black' >
 
            </motion.div>
-           <p className=' ' > At our Dutch design studio, we focus on the things even the eye can&apos;t see, to build better. We create apparel 
-            but approach it as product design. It makes all the difference.   </p>
-            <Link className=' w-36 h-14 border-2 border-slate-300  self-center text-center  py-4 ' href='/' >
+           <p className=' ' > Our style never changes. It evolves. Continuously. Confident and comfortable,
+             ETQ introduces the etiquettes of artisan shoe crafting to today's sneaker world.  </p>
+            <Link className=' w-36 h-14 border-2 border-slate-300  self-center text-center  py-4 ' href='/collections/footwear' >
                Shop Footwear
             </Link>
         </motion.div>
