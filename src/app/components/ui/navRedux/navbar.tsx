@@ -986,7 +986,7 @@ const NavBar = (props: Props) => {
        
         <motion.div className='flex justify-between md:hidden' >
             {/*mobile nav */}
-            <motion.div className='flex  w-1/4 justify-around px-4 ' >
+            <motion.div className='flex  w-1/4 justify-around px-2 ' >
                
                <MobileMenu/>
                 {/*<motion.button onClick={()=>setMobileMenu(!mobileMenu)} ><Image className='w-6 h-6' src={mobileMenuImg} alt='mobile menu' /></motion.button> */}

@@ -38,7 +38,7 @@ const MobileMenu = (props: Props) => {
         console.log('Current Search Term: ', searchRef)
       console.log('Current Search Info: ', searchInfo)
   return (
-    <div className='bg-white flex z-999 text-black' >
+    <div className='bg-white flex z-[9999] text-black' >
        
         <motion.button onClick={()=>setMobileMenu(!mobileMenu)} ><Image className='w-6 h-6' src={mobileMenuImg} alt='mobile menu' /></motion.button>
          <motion.div className='flex justify-start' >
@@ -159,7 +159,7 @@ const MobileMenu = (props: Props) => {
                                          
                                       </div>
                                       <hr className='flex w-full ' />
-                                      <div className='flex flex-col space-y-4 p-4 ' >
+                                      <div className='flex flex-col space-y-4 p-4  z-[9999] ' >
                                         <Link href='/collections/menswear' >
                                         <div className='flex flex-col ' >
                                           <Image className=''height={100} width={100}  src={data?.data?.data[2]?.images[0]} alt='All Menswear' />
@@ -195,8 +195,8 @@ const MobileMenu = (props: Props) => {
                                       </div>
            
                                       </motion.div>}
-                            <motion.div className='flex flex-wrap overflow-hidden space-x-4  ' >
-                              <Link href='/collections/sneakers' >
+                            <motion.div className='flex flex-wrap overflow-hidden space-x-4  z-[9999]' >
+                              <Link className='z-[9999]' href='/collections/sneakers' >
                                 <div className=' ' >
                                    <Image className=' ' width={100} height={100} src={data?.data?.data[8]?.images[0]} alt='Sneakers' />
                                   <   h1 className='' >Sneakers</h1>
@@ -232,7 +232,7 @@ const MobileMenu = (props: Props) => {
                                   <   h1 className='' >Shirts</h1>
                                 </div>
                               </Link>
-                              <Link href='/collections/desert-boots' >
+                              <Link className='z-[9999]' href='/collections/desert-boots' >
                                 <div className='flex  flex-col' >
                                    <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[35]?.images[0]} alt='desert-boots' />
                                   <   h1 className='' >Desert Boots</h1>
