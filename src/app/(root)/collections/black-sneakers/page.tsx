@@ -32,7 +32,7 @@ const Black_Sneakers = (props: Props) => {
   if(data!=undefined) console.log(data);
   console.log(ctx.userState)
   return (
-    <div className=' bg-white text-black ' >
+    <div className=' bg-white text-black min-h-screen ' >
       <div className='w-full' >
       <NavBar/>
       </div>
@@ -41,7 +41,7 @@ const Black_Sneakers = (props: Props) => {
         
         <Link className='self-center' href='/collections/footwear' >Footwear</Link>
          <hr className=' h-6 origin-center  self-center rotate-0 border-2 ' />
-          <h1 className='self-center w-full  ' >Desert Boots</h1>
+          <h1 className='self-center w-full  ' >Black Sneakers</h1>
       </div>
        <div className='flex justify-between p-8 ' >
                  <h1 className='' >{data?.data?.data.length} items</h1>
