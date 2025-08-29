@@ -14,14 +14,7 @@ import filterImg from '@/app/localImages/UI/filter-black.png'
 import Filter from '@/app/components/ui/filterModal/filter'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
 import ItemModal from '@/app/components/ui/itemModal/itemModal'
-import { Metadata } from 'next'
 
-
-export const metadata:Metadata={
-  title:'Footwear',
-  description:'The Footwear Product Page',
-  creator:'Julian Borner'
-}
 type Props = {}
 
 const FootWear = (props: Props) => {

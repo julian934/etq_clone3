@@ -3,14 +3,7 @@ import React from 'react'
 import NavBar from '@/app/components/ui/navRedux/navbar'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
 import Footer from '@/app/components/ui/footer/footer'
-import { Metadata } from 'next'
 
-
-export const metadata:Metadata={
-  title:'Privacy Statement',
-  description:'The Privacy Statement Page',
-  creator:'Julian Borner'
-}
 type Props = {}
 
 const Privacy = (props: Props) => {

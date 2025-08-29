@@ -17,14 +17,8 @@ import Filter from '@/app/components/ui/filterModal/filter'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
 //import Link from 'next/link'
-import { Metadata } from 'next'
 
 
-export const metadata:Metadata={
-  title:'Sneakers',
-  description:'The Sneakers Product Page',
-  creator:'Julian Borner'
-}
 type Props = {}
 
 const Sneakers = (props: Props) => {

@@ -17,14 +17,7 @@ import Filter from '@/app/components/ui/filterModal/filter'
 import { getTshirts } from '@/app/lib/database/connections'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
-import { Metadata } from 'next'
 
-
-export const metadata:Metadata={
-  title:'T-Shirts',
-  description:'The T-Shirts Product Page',
-  creator:'Julian Borner'
-}
 
 type Props = {}
 

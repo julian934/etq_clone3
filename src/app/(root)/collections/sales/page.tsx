@@ -11,14 +11,7 @@ import {AnimatePresence} from "motion/react"
 import GetPrice from '@/app/components/hooks/getPrice'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
-import { Metadata } from 'next'
 
-
-export const metadata:Metadata={
-  title:'Sales',
-  description:'The Sales Product Page',
-  creator:'Julian Borner'
-}
 
 type Props = {}
 

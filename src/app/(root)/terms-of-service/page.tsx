@@ -3,14 +3,9 @@ import React from 'react'
 import NavBar from '@/app/components/ui/navRedux/navbar'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
 import Footer from '@/app/components/ui/footer/footer'
-import { Metadata } from 'next'
 
 
-export const metadata:Metadata={
-  title:'Terms of Service',
-  description:'The Terms of Service Page',
-  creator:'Julian Borner'
-}
+
 type Props = {}
 
 const TermsOfService = (props: Props) => {

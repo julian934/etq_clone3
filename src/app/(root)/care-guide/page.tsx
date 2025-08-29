@@ -5,15 +5,10 @@ import NavBar from '@/app/components/ui/navRedux/navbar'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
 import Footer from '@/app/components/ui/footer/footer'
 import AuxiliaryBanner from '@/app/localImages/banners/auxiliary-banner.jpg'
-import { Metadata } from 'next'
+
 type Props = {}
 
 
-export const metadata:Metadata={
-  title:'Care Guide',
-  description:'The Care Guide for your ETQ products.',
-  creator:'Julian Borner'
-}
 
 const CareGuide = (props: Props) => {
   return (
