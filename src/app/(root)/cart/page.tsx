@@ -16,9 +16,17 @@ import { useSession } from "next-auth/react";
 import { getUser } from "@/app/lib/database/connections";
 import CartItemData from "@/app/components/shared/cartItemData/cartItemData";
 import axios from "axios";
+import { Metadata } from "next";
 //import { getCartData } from "@/app/lib/database/connections";
 
 type Props = {}
+
+
+export const metadata:Metadata={
+  title:'Cart',
+  description:'The ETQ Clone Cart',
+  creator:'Julian Borner'
+}
 console.log(process.env.REACT_PUBLIC_STRIPE_CLIENT_SECRET_KEY)
 const Cart = (props: Props) => {
   const [currUser,setCurrUser]=useState<any>();

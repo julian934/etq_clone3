@@ -18,6 +18,14 @@ import { getLoafers } from '@/app/lib/database/connections'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
 //import Link from 'next/link'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Loafers',
+  description:'The Loafers Product Page',
+  creator:'Julian Borner'
+}
 
 type Props = {}
 

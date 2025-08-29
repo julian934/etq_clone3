@@ -5,6 +5,14 @@ import Image from 'next/image'
 import Footer from '@/app/components/ui/footer/footer'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
 import AuxiliaryBanner from '@/app/localImages/banners/auxiliary-banner.jpg'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Shipping and Delivery',
+  description:'The Shipping and Delivery Page',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const Shipping = (props: Props) => {

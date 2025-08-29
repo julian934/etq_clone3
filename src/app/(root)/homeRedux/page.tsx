@@ -12,6 +12,14 @@ import Icons from '@/app/components/shared/home/icons/icons'
 import Comfort from '@/app/components/shared/home/comfort/comfort'
 import Made from '@/app/components/shared/home/how-its-made/made'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Home Page',
+  description:'The Home Pag eof the ETQ Amsterdam Clone',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const Home = (props: Props) => {

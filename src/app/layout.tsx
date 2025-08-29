@@ -6,8 +6,8 @@ import { Provider } from "./provider";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "The Magisters Corner",
-  description: "Founded in 2024, The Magisters Corner is America's premier destination for Business and Business-Casual clothing.",
+  title: "The ETQ-Amsterdam Clone",
+  description: "A clone of the Popular Webshop ETQ Amsterdam.",
 };
 //Make sure to modify the metadata & check out metadata options in Next.js docs for SEO. 
 

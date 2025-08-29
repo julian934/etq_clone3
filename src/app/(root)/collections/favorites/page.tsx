@@ -13,6 +13,14 @@ import ItemView from '@/app/components/itemView/itemView'
 import GetPrice from '@/app/components/hooks/getPrice'
 import leftArrow from '@/app/localImages/UI/left-1.png'
 import filterImg from '@/app/localImages/UI/filter-black.png'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Favorites',
+  description:'The Favorites Product Page',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const Shoe_Favorites = (props: Props) => {

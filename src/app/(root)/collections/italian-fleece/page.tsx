@@ -16,6 +16,14 @@ import GetPrice from '@/app/components/hooks/getPrice'
 import leftArrow from '@/app/localImages/UI/left-1.png'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Italian Fleece',
+  description:'The Italian Fleece Product Page',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const Italian_Fleece = (props: Props) => {

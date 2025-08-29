@@ -17,6 +17,14 @@ import Filter from '@/app/components/ui/filterModal/filter'
 import { getDressedFootwear } from '@/app/lib/database/connections'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
 //import Link from 'next/link'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Dressed Footwear',
+  description:'The Dressed Footwear Product Page',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const Dressed_Footwear = (props: Props) => {

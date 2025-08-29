@@ -6,6 +6,14 @@ import Footer from '@/app/components/ui/footer/footer'
 import Image from 'next/image'
 import Link from 'next/link'
 import AuxiliaryBanner from '@/app/localImages/banners/auxiliary-banner.jpg'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Help, Returns and Exchanges',
+  description:'The Help and Returns Page',
+  creator:'Julian Borner'
+}
 
 type Props = {}
 

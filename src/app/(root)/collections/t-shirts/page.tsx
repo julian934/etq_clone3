@@ -17,6 +17,14 @@ import Filter from '@/app/components/ui/filterModal/filter'
 import { getTshirts } from '@/app/lib/database/connections'
 import filterImg from '@/app/localImages/UI/filter-black.png'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'T-Shirts',
+  description:'The T-Shirts Product Page',
+  creator:'Julian Borner'
+}
 
 type Props = {}
 
@@ -58,7 +66,7 @@ const T_Shirts = (props: Props) => {
       <div className=' flex min-md:w-1/5 max-sm:w-1/3  min-md:h-3/4   '  key={vals.id} >
         <Link className=' space-y-4  ' href={`/collections/${vals.id}`} >
            
-           <Image className='md:h-[400px] md:w-[400px] max-sm:h-[250px] max-sm:w-[400px] bg-slate-200 justify-around flex' width={300} height={300} src={vals.images[0]} alt={vals.name}  />
+           <Image className='md:h-[400px] md:w-[400px] max-sm:h-[200px] max-sm:w-[400px] bg-slate-200 justify-around flex' width={300} height={300} src={vals.images[0]} alt={vals.name}  />
            <h1 className='justify-around text-lg max-sm:text-md text-start  flex ' >  {vals.name} </h1>
             <GetPrice id={vals?.id} />
            {/*<h3 className='justify-center text-lg text-start' > {vals.default_price} </h3> */}

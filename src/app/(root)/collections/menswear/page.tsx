@@ -16,6 +16,14 @@ import GetPrice from '@/app/components/hooks/getPrice'
 import Filter from '@/app/components/ui/filterModal/filter'
 import { StoreStateContext } from '@/app/lib/context/storeContext'
 import ViewChanger from '@/app/components/ui/viewChanger/view'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Menswear',
+  description:'The Menswear Product Page',
+  creator:'Julian Borner'
+}
 type Props = {}
 
 const MensWear = (props: Props) => {

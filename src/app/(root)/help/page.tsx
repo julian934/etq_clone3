@@ -6,6 +6,14 @@ import Footer from '@/app/components/ui/footer/footer'
 import Link from 'next/link'
 import AuxiliaryBanner from '@/app/localImages/banners/auxiliary-banner.jpg'
 import LowerBanner from '@/app/components/ui/lowerBanner/lowerbanner'
+import { Metadata } from 'next'
+
+
+export const metadata:Metadata={
+  title:'Help',
+  description:'The Help Page',
+  creator:'Julian Borner'
+}
 
 type Props = {}
 
