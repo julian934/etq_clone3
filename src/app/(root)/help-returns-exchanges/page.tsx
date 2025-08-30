@@ -36,7 +36,7 @@ const Help = (props: Props) => {
           <h1 className='font-semibold' >Our return &amp; exchange policy</h1>
           <ul className='space-y-2' >
             <li><Image className='' src='' alt='black square' /><p>Upon arrival of your order, you have 14 days to submit a return or exchange through our <span className='underline' ><Link href='/return' >return portal</Link></span>.</p></li>
-            <li><Image className='' src='' alt='black square' /><p>Doesn't fit? Exchange your product for the right size via our return portal.</p></li>
+            <li><Image className='' src='' alt='black square' /><p>Doesn&apos;t fit? Exchange your product for the right size via our return portal.</p></li>
             <li><Image className='' src='' alt='black square' /><p>Item(s) should be clean and unworn, all tags and packaging material must still be present and in good condition.</p></li>
             <li><Image className='' src='' alt='black square' /><p>For hygiene reasons, underwear is sealed upon delivery and can only be returned or exchanged if the seal is still intact. If the seal has been broken or removed, the return cannot be accepted.</p></li>
             <li><Image className='' src='' alt='black square' /><p>By returning a product, you acknowledge that refunds (either partial or complete) may be refused if the returned item does not meet our specified terms and conditions.</p></li>

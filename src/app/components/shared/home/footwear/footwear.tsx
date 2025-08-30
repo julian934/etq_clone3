@@ -52,7 +52,7 @@ const Footwear = (props: Props) => {
 
            </motion.div>
            <p className=' ' > Our style never changes. It evolves. Continuously. Confident and comfortable,
-             ETQ introduces the etiquettes of artisan shoe crafting to today's sneaker world.  </p>
+             ETQ introduces the etiquettes of artisan shoe crafting to today&apos;s sneaker world.  </p>
             <Link className=' w-36 h-14 border-2 border-slate-300  self-center text-center  py-4 ' href='/collections/footwear' >
                Shop Footwear
             </Link>

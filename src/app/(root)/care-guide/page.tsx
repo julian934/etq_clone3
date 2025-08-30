@@ -55,7 +55,7 @@ const CareGuide = (props: Props) => {
                  Now get the brush to work the cleaner into the suede. Blot it all with a microfiber cloth to absorb moisture.
                 </li>
                 <li className='' ><span className='font-semibold' >To clean the outsole,</span> use our SneakerLAB® X ETQ sneaker cleaner. 
-                Using circular motions, gently scrub the outsole clean. Make sure you don't touch the upper leather. </li>
+                Using circular motions, gently scrub the outsole clean. Make sure you don&apos;t touch the upper leather. </li>
                 <li className='' ><span className='font-semibold' >Minimize unwanted odors</span> with our odor protector inside the shoes. 
                 Allow shoes to air dry completely for at least 2 hours. </li>
 
