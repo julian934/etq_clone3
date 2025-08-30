@@ -17,7 +17,7 @@ const TermsOfService = (props: Props) => {
     <p className="mb-4 text-sm text-gray-500">Last updated: August 5, 2025</p>
 
     <p className="mb-4">
-      Welcome to [yourwebsite.com], operated by [Your Company Name] ("Company", "we", "our", "us"). These Terms of Service ("Terms") govern your access to and use of our website and services ("Service").
+      Welcome to [yourwebsite.com], operated by [Your Company Name] (&quot;Company&quot;, &quot;we&quot;, &quot;our&quot;, &quot;us&quot;). These Terms of Service (&quot;Terms&quot;) govern your access to and use of our website and services (&quot;Service&quot;).
     </p>
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">1. Acceptance of Terms</h2>
@@ -47,7 +47,7 @@ const TermsOfService = (props: Props) => {
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">6. Disclaimers</h2>
     <p className="mb-4">
-      The Service is provided "as is" and "as available" without warranties of any kind. We disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.
+      The Service is provided &quot;as is&quot; and &quot;as available&quot; without warranties of any kind. We disclaim all warranties, express or implied, including merchantability, fitness for a particular purpose, and non-infringement.
     </p>
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">7. Limitation of Liability</h2>

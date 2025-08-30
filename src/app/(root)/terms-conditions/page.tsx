@@ -16,7 +16,7 @@ const TermsAndConditions = (props: Props) => {
 <p className="mb-4">Last updated: August 5, 2025</p>
 
 <p className="mb-4">
-  Please read these terms and conditions ("terms", "terms and conditions") carefully before using [yourwebsite.com] website (the "service") operated by [Your Company Name] ("us", "we", "our").
+  Please read these terms and conditions (&quot;terms&quot;, &quot;terms and conditions&quot;) carefully before using [yourwebsite.com] website (the &quot;service&quot;) operated by [Your Company Name] (&quot;us&quot;, &quot;we&quot;, &quot;our&quot;).
 </p>
 
 <h2 className="text-2xl font-semibold mt-6 mb-2">1. Conditions of Use</h2>

@@ -15,7 +15,7 @@ const Privacy = (props: Props) => {
     <p className="mb-4 text-sm text-gray-500">Last updated: August 5, 2025</p>
 
     <p className="mb-4">
-      [Your Company Name] ("we", "us", or "our") operates the website [yourwebsite.com] (the "Service"). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service.
+      [Your Company Name] (&quot;we&quot;, &quot;us&quot;, or &quot;our&quot;) operates the website [yourwebsite.com] (the &quot;Service&quot;). This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service.
     </p>
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">1. Information We Collect</h2>
@@ -75,14 +75,14 @@ const Privacy = (props: Props) => {
       Our Service may contain links to external sites that are not operated by us. We strongly advise you to review the privacy policy of every site you visit.
     </p>
 
-    <h2 className="text-2xl font-semibold mt-8 mb-2">8. Children's Privacy</h2>
+    <h2 className="text-2xl font-semibold mt-8 mb-2">8. Children&apos;s Privacy</h2>
     <p className="mb-4">
       Our Service is not intended for children under the age of 13, and we do not knowingly collect personal data from them. If you are a parent or guardian and believe your child has provided us with data, please contact us.
     </p>
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">9. Changes to This Policy</h2>
     <p className="mb-4">
-      We may update this Privacy Policy from time to time. We will notify you of changes by posting the new policy on this page with an updated "Last updated" date.
+      We may update this Privacy Policy from time to time. We will notify you of changes by posting the new policy on this page with an updated &quot;Last updated&quot; date.
     </p>
 
     <h2 className="text-2xl font-semibold mt-8 mb-2">10. Contact Us</h2>
