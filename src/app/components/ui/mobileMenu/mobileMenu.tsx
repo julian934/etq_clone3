@@ -28,12 +28,19 @@ const MobileMenu = (props: Props) => {
         staleTime: 1000* 60 * 5
       })
       const searchData=()=>{
-        let currData=data?.data;
+        let currData=data?.data?.data;
         //setSearchInfo(searchRef.current.value)
         let searchTerm=currData.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
         setSearchInfo(searchTerm)
 
       }
+      useEffect(()=>{
+        
+        let currData=data?.data;
+        //setSearchInfo(searchRef.current.value)
+        let searchTerm=currData && currData?.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
+        setSearchInfo(searchTerm)
+      },[searchRef])
       if(data!=undefined) console.log(data)
         console.log('Current Search Term: ', searchRef)
       console.log('Current Search Info: ', searchInfo)
@@ -50,7 +57,7 @@ const MobileMenu = (props: Props) => {
                         <div className='flex  w-1/4 justify-around ' >
                            <motion.button onClick={()=>setMobileMenu(!mobileMenu)} ><Image className='w-8 h-6' src={blackX} alt='mobile menu' /></motion.button>
                           {/* Morph button from mobile to BlackX */}
-                          <motion.button className=' ' onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6' src={search} alt='Search Button' /></motion.button>
+                          <motion.button className='max-sm:invisible ' onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6 max-sm:invisible' src={search} alt='Search Button' /></motion.button>
                           
                         </div>
                         <div className='flex justify-self-start' >
@@ -62,8 +69,8 @@ const MobileMenu = (props: Props) => {
                            <hr className='w-full'/>
 
                           </motion.div>
-                          {mobileSearchModal && <motion.div className='fixed text-black w-[600px] h-[850px] bg-white border-2 border-slate-200 top-0 z-999 ' >
-                            <motion.div className='flex flex-col' >
+                          {mobileSearchModal && <motion.div className='fixed text-black w-[600px] h-[850px] bg-white border-2 border-slate-200 top-0 z-[9999] ' >
+                            <motion.div className='flex flex-col z-[9999] ' >
                               <div className='flex self-end justify-around w-2/3' >
                                 <Link className='flex justify-center self-center text-2xl pt-2 ' href='/homeRedux' >ETQ.</Link>
                                 <motion.button className='flex justify-end  self-center pr-12 pt-4' onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6' src={blackX} alt='Search Button' /></motion.button>
@@ -79,10 +86,10 @@ const MobileMenu = (props: Props) => {
                               <div className='flex w-full py-4' >
                                   <hr className='w-full ' />
                               </div>
-                              <div className=' flex flex-wrap w-full space-x-2' >
+                              <div className=' flex flex-wrap text-slate-400 w-5/6 h-[650px] overflow-y-auto space-x-2' >
                                 {searchInfo && <h1 className='flex text-2xl px-2 ' >Products: </h1>}
-                                {searchInfo && searchInfo?.map((vals:any)=><div className='flex w-full  overflow-hidden space-x-6 space-y-2 ' key={vals.id}>
-                                  <Link className='flex w-full justify-between space-x-2' href={`/collections/${vals.id}`} >
+                                {searchInfo && searchInfo?.map((vals:any)=><div className='flex w-full text-black overflow-y-hidden space-x-6 space-y-2 ' key={vals.id}>
+                                  <Link className='flex w-full justify-between space-x-2' href={`/collections/${vals?.id}`} >
                                  
                                     <h1 className='flex justify-start self-center ' > {vals?.name} </h1>
                                     <Image className='w-20 h-20 justify-self-end flex self-end ' width={100} height={100} quality={100} src={vals.images[0]}  alt={vals.name} />
@@ -103,7 +110,7 @@ const MobileMenu = (props: Props) => {
                                              <Image className='' src={leftArrow} alt='left arrow' />
                                           </button>
                                            <button onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} >
-                                             <Image className='' src={search} alt='Search' />
+                                             <Image className='max-sm:invisible' src={search} alt='Search' />
                                             </button>  
                                             <h1 className='flex w-full justify-end self-center pr-8 text-xl ' >Footwear</h1>
                                          </div>
@@ -152,7 +159,7 @@ const MobileMenu = (props: Props) => {
                                              <Image className='' src={leftArrow} alt='left arrow' />
                                           </button>
                                            <button onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} >
-                                             <Image className='' src={search} alt='Search' />
+                                             <Image className='max-sm:invisible' src={search} alt='Search' />
                                             </button>  
                                             <h1 className='flex w-full justify-end self-end pr-8' >Menswear</h1>
                                          </div>
@@ -195,8 +202,8 @@ const MobileMenu = (props: Props) => {
                                       </div>
            
                                       </motion.div>}
-                            <motion.div className='flex flex-wrap overflow-hidden space-x-4  z-[9999]' >
-                              <Link className='z-[9999]' href='/collections/sneakers' >
+                            <motion.div className='flex flex-wrap overflow-hidden space-x-4  ' >
+                              <Link className='' href='/collections/sneakers' >
                                 <div className=' ' >
                                    <Image className=' ' width={100} height={100} src={data?.data?.data[8]?.images[0]} alt='Sneakers' />
                                   <   h1 className='' >Sneakers</h1>
@@ -232,7 +239,7 @@ const MobileMenu = (props: Props) => {
                                   <   h1 className='' >Shirts</h1>
                                 </div>
                               </Link>
-                              <Link className='z-[9999]' href='/collections/desert-boots' >
+                              <Link className='' href='/collections/desert-boots' >
                                 <div className='flex  flex-col' >
                                    <Image className='h-20 w-20' width={100} height={100} src={data?.data?.data[35]?.images[0]} alt='desert-boots' />
                                   <   h1 className='' >Desert Boots</h1>

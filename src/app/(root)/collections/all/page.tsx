@@ -42,9 +42,9 @@ const All = (props: Props) => {
             </motion.div>
             
          </div>
-         <div className='flex flex-wrap self-center w-full p-2 gap-x-8' >
-            {data && data?.data?.map((items:any)=>
-            <div className='flex flex-col justify-self-between self-center bg-slate-100 p-8  ' key={items.id} >
+         <div className='flex flex-wrap max-sm:justify-center  self-center w-full p-2 gap-x-8' >
+            {data!=null && data!=undefined && data?.data?.data?.map((items:any)=>
+            <div className='flex flex-col justify-self-between self-center bg-white p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
                 <Image className=' w-64 h-64 ' src={items.images[0]} width={100} height={100} quality={100} alt={items.name} />

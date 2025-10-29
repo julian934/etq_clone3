@@ -992,7 +992,8 @@ const NavBar = (props: Props) => {
                 {/*<motion.button onClick={()=>setMobileMenu(!mobileMenu)} ><Image className='w-6 h-6' src={mobileMenuImg} alt='mobile menu' /></motion.button> */}
                
                 {/* <motion.button onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6' src={search} alt='Search Button' /></motion.button>*/}
-                <MobileSearch/>
+               
+                {/*  <MobileSearch/>*/}
             </motion.div>
             <motion.div className='flex px-4 mt-2  ' >
               <h1 className='text-2xl' >ETQ.</h1>

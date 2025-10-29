@@ -99,9 +99,9 @@ if(data!=undefined) console.log(data.data)
       <div className='flex max-sm:flex-col  md:min-h-[1000px] w-full px-4 ' >
         <div className='w-full  text-black' >
           <div className='flex  self-center  justify-around w-40' >
-            <Image className='' src={leftArrow} alt='Back Arrow' />
-               <hr className='origin-center rotate-90 w-28 bg-slate-200 flex self-center ' />
-               <h1 className='flex self-center' >Parent category</h1>
+            <Image className='h-8 w-10 self-center' src={leftArrow} alt='Back Arrow' />
+               <hr className='origin-center rotate-90 w-6 bg-slate-200 flex self-center ' />
+               <h1 className='flex self-center' >Return</h1>
           </div>
             <div className='flex flex-wrap self-end  gap-2 justify-around ' >
                {data?.data?.images.length>1 && data?.data?.images?.map((items:any)=><Image className='flex w-1/3 ' key={items.id} width={100} height={100} quality={100} src={items} alt="Item Images" />)}
@@ -152,7 +152,7 @@ if(data!=undefined) console.log(data.data)
                 <h1 className='' >Premium features</h1>
                 <motion.button className='' onClick={()=>setFeatureState(!featureState)}  >
                   
-                  {featureState? <Image className='' src={minus} alt='minus' />:<Image className='w-8 h-6' quality={100} width={100} height={100}src={plus} alt='Plus' />}
+                  {featureState? <Image className='' src={minus} alt='minus' />:<Image className='w-6 h-6' quality={100} width={100} height={100}src={plus} alt='Plus' />}
                 </motion.button>
                 </motion.div>
                 
@@ -165,7 +165,7 @@ if(data!=undefined) console.log(data.data)
                 <h1 className='' >Description</h1>
                  <motion.button className=''onClick={()=>setDescriptionState(!descriptionState)}  >
                   
-                  {descriptionState?<Image className='' src={minus} alt='minus' />:<Image className='w-8 h-6' quality={100} width={100} height={100}src={plus} alt='Plus' />}
+                  {descriptionState?<Image className='' src={minus} alt='minus' />:<Image className='w-6 h-6' quality={100} width={100} height={100}src={plus} alt='Plus' />}
                   </motion.button>
                 </motion.div>
                 {descriptionState?<motion.div className='flex  flex-wrap  h-full ' >
@@ -177,7 +177,7 @@ if(data!=undefined) console.log(data.data)
                 <h1 className='' >Material info</h1>
                 <motion.button className='' onClick={()=>setMaterialState(!materialState)} >
                   
-                  {materialState?<Image className='' src={minus} alt='minus' />:<Image className='w-8 h-6'quality={100} width={100} height={100} src={plus} alt='Plus' />}
+                  {materialState?<Image className='' src={minus} alt='minus' />:<Image className='w-6 h-6'quality={100} width={100} height={100} src={plus} alt='Plus' />}
                 </motion.button>
                 </motion.div>
                 {materialState?<motion.div className='flex  flex-wrap  h-full ' >
@@ -189,7 +189,7 @@ if(data!=undefined) console.log(data.data)
                 <h1 className='' >Size & fit</h1>
                   <motion.button className='' onClick={()=>setSizeState(!sizeState)} >
                      
-                     {sizeState?<Image className='' src={minus} alt='minus' />:<Image className='w-8 h-6' quality={100} width={100} height={100} src={plus} alt='Plus' />}
+                     {sizeState?<Image className='' src={minus} alt='minus' />:<Image className='w-6 h-6' quality={100} width={100} height={100} src={plus} alt='Plus' />}
                     </motion.button>
                 </motion.div>
                 {sizeState?<motion.div className='flex  flex-wrap  h-full ' >
@@ -200,7 +200,7 @@ if(data!=undefined) console.log(data.data)
         </div>
 
       </div>
-        <div className='flex w-full' >
+        <div className='flex w-full max-sm:py-20' >
            <Footer/>
           </div>
       </div>

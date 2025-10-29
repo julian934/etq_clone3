@@ -82,7 +82,7 @@ const FootWear = (props: Props) => {
          </div>
          </div>
         
-         <div className='flex flex-wrap self-center w-full p-2 gap-x-8' >
+         <div className='flex flex-wrap self-center max-sm:justify-center  w-full p-2 gap-x-8' >
             {AllData && ctx.filterString==null&& ctx.sortString=='' && AllData?.data?.data?.map((items:any)=>
             
             <div className='flex flex-col justify-self-between self-center bg-white p-8 ' key={items.id} >
@@ -96,7 +96,7 @@ const FootWear = (props: Props) => {
                 </Link>
             </div>)}
             {AllData && ctx.filterString==null&& ctx?.sortString=='AZ' && AllData?.data?.data?.sort((a:any,b:any)=>a.name.localeCompare(b.name))?.map((items:any)=>
-            <div className='flex flex-col justify-self-between self-center bg-white p-8  ' key={items.id} >
+            <div className='flex flex-col   justify-self-between self-center bg-white p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
                 
@@ -107,7 +107,7 @@ const FootWear = (props: Props) => {
                 </Link>
             </div>)}
             {AllData && ctx.filterString==null&& ctx?.sortString=='ZA' && AllData?.data?.data?.sort((a:any,b:any)=>b.name.localeCompare(a.name))?.map((items:any)=>
-            <div className='flex flex-col justify-self-between self-center bg-white p-8  ' key={items.id} >
+            <div className='flex flex-col   justify-self-between self-center bg-white p-8  ' key={items.id} >
                 <Link href={`/collections/${items.id}`} >
                 
            
@@ -141,8 +141,10 @@ const FootWear = (props: Props) => {
             </div>)}
          </div>
         </div>
-        
-        <Footer/>
+        <div className='' >
+           <Footer/>
+        </div>
+       
         </div>
   )
 }
