@@ -57,7 +57,7 @@ const MobileMenu = (props: Props) => {
                         <div className='flex  w-1/4 justify-around ' >
                            <motion.button onClick={()=>setMobileMenu(!mobileMenu)} ><Image className='w-8 h-6' src={blackX} alt='mobile menu' /></motion.button>
                           {/* Morph button from mobile to BlackX */}
-                          <motion.button className='max-sm:invisible ' onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6 max-sm:invisible' src={search} alt='Search Button' /></motion.button>
+                          <motion.button className=' ' onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} ><Image className='w-6 h-6 ' src={search} alt='Search Button' /></motion.button>
                           
                         </div>
                         <div className='flex justify-self-start' >
@@ -110,7 +110,7 @@ const MobileMenu = (props: Props) => {
                                              <Image className='' src={leftArrow} alt='left arrow' />
                                           </button>
                                            <button onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} >
-                                             <Image className='max-sm:invisible' src={search} alt='Search' />
+                                             <Image className='' src={search} alt='Search' />
                                             </button>  
                                             <h1 className='flex w-full justify-end self-center pr-8 text-xl ' >Footwear</h1>
                                          </div>
@@ -159,7 +159,7 @@ const MobileMenu = (props: Props) => {
                                              <Image className='' src={leftArrow} alt='left arrow' />
                                           </button>
                                            <button onClick={()=>{setMobileSearchModal(!mobileSearchModal)}} >
-                                             <Image className='max-sm:invisible' src={search} alt='Search' />
+                                             <Image className='' src={search} alt='Search' />
                                             </button>  
                                             <h1 className='flex w-full justify-end self-end pr-8' >Menswear</h1>
                                          </div>
