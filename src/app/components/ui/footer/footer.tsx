@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 type Props = {}
@@ -9,13 +10,17 @@ const Footer = (props: Props) => {
 <footer className="bg-white  w-full ">
     <div className="mx-auto w-full max-w-screen-xl">
       <div className="grid grid-cols-2 gap-8 px-4 py-6 lg:py-8 md:grid-cols-4">
-        <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Company</h2>
+        <div className='w-full' >
+            <h2 className="mb-6 text-sm font-semibold   ">About ETQ</h2>
+            <p className='text-xs mb-2 px-2' >ETQ is a powerful collective of perfectionists. We design quality wardrobe essentials. 
+                Our style never changes. It evolves. Clean and mature, that&apos;s our way of life. It&apos;s our code.</p>
+                <Link className='text-sm' href='/about' >Read more.</Link>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
+               
+               {/* <li className="mb-4">
                     <a href="#" className=" hover:underline">About</a>
-                </li>
-                <li className="mb-4">
+                </li> */}
+                {/*  <li className="mb-4">
                     <a href="#" className="hover:underline">Careers</a>
                 </li>
                 <li className="mb-4">
@@ -23,25 +28,32 @@ const Footer = (props: Props) => {
                 </li>
                 <li className="mb-4">
                     <a href="#" className="hover:underline">Blog</a>
-                </li>
+                </li>*/}
             </ul>
         </div>
         <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Help center</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
-                <li className="mb-4">
+               
+                {/*  <li className="mb-4">
                     <a href="#" className="hover:underline">Discord Server</a>
-                </li>
+                </li>*/}
                 <li className="mb-4">
                     <a href="#" className="hover:underline">Twitter</a>
                 </li>
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Facebook</a>
+                    <a href="#" className="hover:underline">Instagram</a>
                 </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Contact Us</a>
-                </li>
+               
             </ul>
+        </div>
+         <div>
+            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Contact</h2>
+            <div className='flex flex-col space-y-4' >
+             
+               <a className='' href='mailto:jborner111@gmail.com' >Email us here.</a>
+            </div>
+            
         </div>
         <div>
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Legal</h2>
@@ -58,7 +70,7 @@ const Footer = (props: Props) => {
             </ul>
         </div>
         <div>
-            <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Download</h2>
+            {/*  <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase">Download</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
                     <a href="#" className="hover:underline">iOS</a>
@@ -72,7 +84,8 @@ const Footer = (props: Props) => {
                 <li className="mb-4">
                     <a href="#" className="hover:underline">MacOS</a>
                 </li>
-            </ul>
+            </ul>*/}
+           
         </div>
     </div>
     <div className="px-4 py-6 bg-gray-100  md:flex md:items-center md:justify-between">

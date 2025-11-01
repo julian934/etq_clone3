@@ -38,7 +38,7 @@ const MobileMenu = (props: Props) => {
         
         let currData=data?.data;
         //setSearchInfo(searchRef.current.value)
-        let searchTerm=currData && currData?.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
+        let searchTerm=currData && currData!=null && currData!=undefined && currData?.filter((vals:any)=>vals?.name?.includes(searchRef.current.value))
         setSearchInfo(searchTerm)
       },[searchRef])
       if(data!=undefined) console.log(data)

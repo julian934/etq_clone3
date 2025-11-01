@@ -41,7 +41,7 @@ const Wardrobe = (props: Props) => {
               <h2 className='text-2xl' >
                  Explore a selection of our wardrobe essentials.
               </h2>
-              <Link className='flex max-sm:hidden self-center' href='/collections/all' >Shop all</Link>     
+              <Link className='flex max-sm:hidden self-center z-50' href='/collections/all' >Shop all</Link>     
               </motion.div>
               <motion.div className='flex  md:px-4  p-4' >
                   {wardrobeState && wardrobeState?.data?.map((vals:any)=><Link className=' max-sm:w-1/2 md:w-1/4 md:h-full md:px-2 ' href={`${vals.link}`} key={vals.label} >
