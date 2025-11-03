@@ -38,11 +38,16 @@ const Footer = (props: Props) => {
                 {/*  <li className="mb-4">
                     <a href="#" className="hover:underline">Discord Server</a>
                 </li>*/}
-                <li className="mb-4">
+              
+                {/*   <li className="mb-4">
                     <a href="#" className="hover:underline">Twitter</a>
+                </li>*/}
+               
+                 <li className="mb-4">
+                    <a href="/help" className="hover:underline">Help</a>
                 </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Instagram</a>
+                 <li className="mb-4">
+                    <a href="/help-returns-exchanges" className="hover:underline">Returns &amp; Exchanges</a>
                 </li>
                
             </ul>
@@ -59,13 +64,11 @@ const Footer = (props: Props) => {
             <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase ">Legal</h2>
             <ul className="text-gray-500 dark:text-gray-400 font-medium">
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Privacy Policy</a>
+                    <a href="/privacy-statement" className="hover:underline">Privacy Policy</a>
                 </li>
+               
                 <li className="mb-4">
-                    <a href="#" className="hover:underline">Licensing</a>
-                </li>
-                <li className="mb-4">
-                    <a href="#" className="hover:underline">Terms &amp; Conditions</a>
+                    <a href="/terms-conditions" className="hover:underline">Terms &amp; Conditions</a>
                 </li>
             </ul>
         </div>
